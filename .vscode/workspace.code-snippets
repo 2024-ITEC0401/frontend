@@ -1,0 +1,6 @@
+{
+    "Import Emotion Styled": {
+        "prefix": ["!styled"],
+        "body": ["import styled from \"@emotion/styled\";"],
+    },
+}
