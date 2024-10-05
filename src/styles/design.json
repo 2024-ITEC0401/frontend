@@ -1,0 +1,62 @@
+{
+  "global": {
+    "default-2xl": {
+      "value": "36",
+      "type": "fontSizes"
+    },
+    "default-xl": {
+      "value": "24",
+      "type": "fontSizes"
+    },
+    "default-l": {
+      "value": "20",
+      "type": "fontSizes"
+    },
+    "default-m": {
+      "value": "18",
+      "type": "fontSizes"
+    },
+    "default-s": {
+      "value": "16",
+      "type": "fontSizes"
+    },
+    "default-xs": {
+      "value": "14",
+      "type": "fontSizes"
+    },
+    "default-2xs": {
+      "value": "12",
+      "type": "fontSizes"
+    },
+    "primary": {
+      "value": "#00a869",
+      "type": "color"
+    },
+    "secondary": {
+      "value": "#edffef",
+      "type": "color"
+    },
+    "red": {
+      "value": "#ff5d5d",
+      "type": "color"
+    },
+    "darkgray": {
+      "value": "#7d8790",
+      "type": "color"
+    },
+    "gray": {
+      "value": "#f3f3f3",
+      "type": "color"
+    },
+    "lightgray": {
+      "value": "#fafafa",
+      "type": "color"
+    }
+  },
+  "$themes": [],
+  "$metadata": {
+    "tokenSetOrder": [
+      "global"
+    ]
+  }
+}
