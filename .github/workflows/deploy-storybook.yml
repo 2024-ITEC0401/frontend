@@ -1,0 +1,21 @@
+name: Deploy Storybook on Chromatic
+
+on:
+    pull_request:
+        branches: ["develop"]
+        types: ["closed"]
+
+jobs:
+    storybook:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v1
+
+            - name: Install Dependencies
+              run: npm ci
+
+            - uses: chromaui/action@v1
+              with:
+                  projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
