@@ -1,4 +1,4 @@
-import { Color } from "./Color";
+import { Color } from "@/components/forms/Color";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Color> = {

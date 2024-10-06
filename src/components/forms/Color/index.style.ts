@@ -1,4 +1,5 @@
-import { ColorProps } from "./Color";
+import { ColorProps } from "@/components/forms/Color";
+
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`

@@ -2,8 +2,8 @@ import { useCallback } from "react";
 
 import { Text } from "@/components/typography/Text/Text";
 
-import * as Styles from "./Color.style";
-import { SelectedColor } from "./ColorPalette";
+import { SelectedColor } from "@/components/forms/ColorPalette";
+import * as Styles from "@/components/forms/Color/index.style";
 
 export interface ColorProps extends SelectedColor {
     active?: boolean;
