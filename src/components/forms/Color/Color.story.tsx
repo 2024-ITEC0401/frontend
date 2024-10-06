@@ -2,7 +2,7 @@ import { Color } from "@/components/forms/Color";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Color> = {
-    title: "Forms/ColorPalette/Color",
+    title: "Forms/Color",
     component: Color,
     argTypes: {
         color: {
