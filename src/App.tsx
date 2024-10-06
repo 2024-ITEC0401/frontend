@@ -1,13 +1,15 @@
 import { BrowserRouter } from "react-router-dom";
 
+import { globalStyles } from "@/styles/global";
+import { resetStyles } from "@/styles/reset";
+
 import { Router } from "@/Routes";
-import reset from "@/styles/reset";
 import { Global } from "@emotion/react";
 
 export default function App() {
     return (
         <>
-            <Global styles={reset} />
+            <Global styles={[resetStyles, globalStyles]} />
             <BrowserRouter>
                 <Router />
             </BrowserRouter>
