@@ -1,4 +1,5 @@
-import { ColorPaletteProps } from "./ColorPalette";
+import { ColorPaletteProps } from "@/components/forms/ColorPalette";
+
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div<Pick<ColorPaletteProps, "width" | "height">>`
