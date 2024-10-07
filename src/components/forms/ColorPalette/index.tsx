@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { Color } from "./Color";
-import * as Styles from "./ColorPalette.style";
+import { Color } from "@/components/forms/Color";
+import * as Styles from "@/components/forms/ColorPalette/index.style";
 
 export interface SelectedColor {
     colorLabel: string;

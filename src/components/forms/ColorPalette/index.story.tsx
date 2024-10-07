@@ -1,8 +1,9 @@
-import { ColorPalette } from "./ColorPalette";
+import { ColorPalette } from ".";
+
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof ColorPalette> = {
-    title: "Forms/ColorPalette/ColorPalette",
+    title: "Forms/ColorPalette",
     component: ColorPalette,
 };
 
