@@ -54,5 +54,4 @@ jobs:
             - name: Deploy to Google Cloud Storage
               working-directory: temp_folder
               run: |
-                  cd temp_folder
                   gcloud app deploy app.yaml --quiet
