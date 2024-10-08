@@ -11,13 +11,13 @@ export const ButtonElement = styled.button<ButtonProps>`
     background-color: ${(props) => {
         switch (props.variant) {
             case "primary":
-                return "#00A869";
+                return "var(--color-primary)";
             case "secondary":
-                return "#FF5D5D";
+                return "var(--color-secondary)";
             case "login":
-                return "#DBDBDB";
+                return "var(--color-gray)";
             default:
-                return "#00A869";
+                return "var(--color-primary)";
         }
     }};
 
@@ -28,7 +28,7 @@ export const ButtonElement = styled.button<ButtonProps>`
             case "secondary":
                 return "#fff";
             case "login":
-                return "#767676";
+                return "var(--color-darkgray)";
             default:
                 return "#fff";
         }
