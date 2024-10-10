@@ -3,8 +3,8 @@ import { forwardRef } from "react";
 import { InputWrapper, InputElement, Label } from "@/components/forms/Input/index.style";
 
 export interface InputProps {
-    width: string;
-    height: string;
+    width: SizeProp;
+    height: SizeProp;
 
     label?: string;
 }
