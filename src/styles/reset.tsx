@@ -10,6 +10,7 @@ export const resetStyles = css`
     body,
     div,
     span,
+    input,
     applet,
     object,
     iframe,
