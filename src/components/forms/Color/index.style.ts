@@ -1,6 +1,6 @@
-import { ColorProps } from "@/components/forms/Color";
-
 import styled from "@emotion/styled";
+
+import { ColorProps } from "@/components/forms/Color";
 
 export const Wrapper = styled.div`
     display: flex;

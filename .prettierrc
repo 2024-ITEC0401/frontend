@@ -16,6 +16,8 @@
         "^react",
         "<THIRD_PARTY_MODULES>",
 
+        "^(@emotion)(.*)$",
+
         "^(@/components)(.*)$",
         "^(@/pages)(.*)$",
 
