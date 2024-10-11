@@ -1,4 +1,5 @@
-import { SearchBarProps } from "./index";
+import { SearchBarProps } from "@/components/forms/SearchBar/index";
+
 import styled from "@emotion/styled";
 
 export const SearchBarWrapper = styled.div<SearchBarProps>`
