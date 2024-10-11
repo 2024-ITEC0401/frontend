@@ -5,6 +5,7 @@ export const globalStyles = css`
     :root {
         --color-primary: ${design.global.primary.value};
         --color-secondary: ${design.global.secondary.value};
+        --color-point: ${design.global.point.value};
         --color-red: ${design.global.red.value};
         --color-darkgray: ${design.global.darkgray.value};
         --color-gray: ${design.global.gray.value};
