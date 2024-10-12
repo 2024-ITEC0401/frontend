@@ -9,10 +9,10 @@ export interface SearchBarProps extends React.ComponentProps<"input"> {
     height?: SizeProp;
 }
 
-export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(({ width, height, ...reset }, ref) => {
+export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(({ width, height, ...rest }, ref) => {
     return (
         <SearchBarWrapper width={width} height={height}>
-            <SearchBarContainer ref={ref} height={height} {...reset}></SearchBarContainer>
+            <SearchBarContainer ref={ref} height={height} {...rest}></SearchBarContainer>
             <SearchBtn height={height}>
                 <img src={SearchIcon} alt="search" />
             </SearchBtn>
