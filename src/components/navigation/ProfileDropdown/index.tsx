@@ -13,7 +13,7 @@ const ProfileDropdown: React.FC = () => {
         <Styles.DropdownContainer>
             <Styles.DropdownButton onClick={toggleDropdown}>
                 {/* 나중에 프로필 이미지 넣어야 함  */}
-                <img src="src/assets/SubLogo.png" alt="Profile" />
+                <Styles.ProfileImage src="src/assets/SubLogo.png" alt="Profile" />
             </Styles.DropdownButton>
 
             {isOpen && (
