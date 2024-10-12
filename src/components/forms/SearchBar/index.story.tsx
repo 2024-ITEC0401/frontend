@@ -14,5 +14,7 @@ export const Default: Story = {
     args: {
         width: "400px",
         height: "55px",
+
+        placeholder: "검색",
     },
 };

@@ -4,16 +4,16 @@ import { SearchBarWrapper, SearchBarContainer, SearchBtn } from "@/components/fo
 
 import SearchIcon from "@/assets/common/SearchIcon.png";
 
-export interface SearchBarProps {
+export interface SearchBarProps extends React.ComponentProps<"input"> {
     width?: SizeProp;
     height?: SizeProp;
 }
 
-export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>((props, ref) => {
+export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(({ width, height, ...reset }, ref) => {
     return (
-        <SearchBarWrapper width={props.width} height={props.height}>
-            <SearchBarContainer ref={ref} height={props.height} placeholder="검색"></SearchBarContainer>
-            <SearchBtn height={props.height}>
+        <SearchBarWrapper width={width} height={height}>
+            <SearchBarContainer ref={ref} height={height} {...reset}></SearchBarContainer>
+            <SearchBtn height={height}>
                 <img src={SearchIcon} alt="search" />
             </SearchBtn>
         </SearchBarWrapper>
