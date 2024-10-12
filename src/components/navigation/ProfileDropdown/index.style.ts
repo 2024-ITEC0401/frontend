@@ -3,25 +3,18 @@ import { motion } from "framer-motion";
 import styled from "@emotion/styled";
 
 export const DropdownContainer = styled.div`
-    position: relative;
-    display: inline-block;
-`;
-
-export const DropdownButton = styled.button`
-    background: none;
-    border: none;
-    cursor: pointer;
+    position: absolute;
+    top: 80px;
+    right: 140px;
 `;
 
 export const DropdownMenu = styled(motion.div)`
     position: absolute;
-    top: 50px;
-    right: 0;
-    width: 200px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 16px;
+    z-index: 100;
 `;
 
 export const MenuItem = styled.div`
