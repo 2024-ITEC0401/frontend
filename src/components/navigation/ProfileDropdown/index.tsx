@@ -15,7 +15,7 @@ const ProfileDropdown: React.FC = () => {
                     <Styles.ProfileID>people@gmail.com</Styles.ProfileID>
                 </Styles.MenuItem>
                 <Styles.MenuItem>내 정보 수정</Styles.MenuItem>
-                <Styles.MenuItem>좋아요 표시한 코드</Styles.MenuItem>
+                <Styles.MenuItem>좋아요 표시한 코디</Styles.MenuItem>
                 <Styles.MenuItem>로그아웃</Styles.MenuItem>
             </Styles.DropdownMenu>
         </Styles.DropdownContainer>
