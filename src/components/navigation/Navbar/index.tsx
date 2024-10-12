@@ -24,7 +24,7 @@ const Navbar = () => {
 
     return (
         <Styles.NavContainer>
-            <Styles.Logo src={Logo} onClick={() => window.location.href = '/'} />
+            <Styles.Logo src={Logo} onClick={() => (window.location.href = "/")} />
             <Styles.Nav>
                 <Styles.MenuList>
                     {menuItems.map((item, index) => (
@@ -37,8 +37,8 @@ const Navbar = () => {
                 </Styles.MenuList>
             </Styles.Nav>
             <Styles.UserProfile onClick={toggleDropdown}>
-              <Styles.UserProfileImage src={UserLogo} alt="Profile" />
-              <Styles.UserProfileID>홍길동 님</Styles.UserProfileID>
+                <Styles.UserProfileImage src={UserLogo} alt="Profile" />
+                <Styles.UserProfileID>홍길동 님</Styles.UserProfileID>
             </Styles.UserProfile>
             {isDropdownOpen && <ProfileDropdown />}
         </Styles.NavContainer>
