@@ -1,5 +1,6 @@
-import { TextProps } from "./Text";
 import styled from "@emotion/styled";
+
+import { TextProps } from "@/components/typography/Text";
 
 export const TextElement = styled.span<TextProps>`
     font-smooth: antialiased;

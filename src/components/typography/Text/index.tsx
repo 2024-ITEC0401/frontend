@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
-import * as Styles from "./Text.style";
+import * as Styles from "./index.style";
 
 export interface TextProps extends React.ComponentProps<"span"> {
     children?: React.ReactNode;

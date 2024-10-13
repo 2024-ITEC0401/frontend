@@ -1,5 +1,5 @@
 import * as Styles from "@/components/display/SectionHeader/index.style";
-import { Text } from "@/components/typography/Text/Text";
+import { Text } from "@/components/typography/Text";
 
 export interface SectionHeaderProps {
     label: string;
