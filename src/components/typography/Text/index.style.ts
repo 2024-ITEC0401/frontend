@@ -40,6 +40,8 @@ export const TextElement = styled.span<TextProps>`
                 return "var(--color-primary)";
             case "secondary":
                 return "var(--color-secondary)";
+            case "point":
+                return "var(--color-point)";
             case "red":
                 return "var(--color-red)";
             case "darkgray":
