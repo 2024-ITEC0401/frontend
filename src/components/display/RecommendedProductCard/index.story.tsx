@@ -15,6 +15,7 @@ export const Default: Story = {
         width: "280px",
         height: "320px",
 
+        title: "흰색 롱 슬리브",
         count: 2,
     },
 };

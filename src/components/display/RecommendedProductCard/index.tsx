@@ -7,6 +7,7 @@ export interface RecommendedProductCardProps {
     width: SizeProp;
     height: SizeProp;
 
+    title?: string;
     count?: number;
 }
 
@@ -15,7 +16,7 @@ export const RecommendedProductCard = (props: RecommendedProductCardProps) => {
         <Styles.Wrapper width={props.width} height={props.height}>
             <Styles.ProductImg src={Cloth} />
             <Text size="l" weight="bold">
-                흰색 롱 슬리브
+                {props.title}
             </Text>
             <Styles.Info>
                 <Text size="xs" weight="normal" color="darkgray">
