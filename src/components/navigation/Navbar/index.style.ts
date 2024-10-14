@@ -3,19 +3,20 @@ import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 
 export const NavContainer = styled.div`
-    width: min(100%, 1440px);
+    width: 100%;
     height: 85px;
-    margin: 0 auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 `;
 
 export const NavWrapper = styled.header`
     position: relative;
     display: flex;
+    width: min(100%, 1440px);
+    margin: 0 auto;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #fff;
-    border-bottom: 1px solid #eaeaea;
 `;
 
 export const Logo = styled.img`

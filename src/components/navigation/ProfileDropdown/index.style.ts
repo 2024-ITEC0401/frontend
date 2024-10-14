@@ -4,8 +4,8 @@ import styled from "@emotion/styled";
 
 export const DropdownContainer = styled.div`
     position: absolute;
-    top: 80px;
-    right: 140px;
+    top: 75px;
+    right: 175px;
 `;
 
 export const DropdownMenu = styled(motion.div)`
