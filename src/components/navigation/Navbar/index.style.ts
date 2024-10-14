@@ -2,18 +2,20 @@ import { Link } from "react-router-dom";
 
 import styled from "@emotion/styled";
 
-export const NavContainer = styled.header`
+export const NavContainer = styled.div`
+    width: min(100%, 1440px);
+    height: 85px;
+    margin: 0 auto;
+`;
+
+export const NavWrapper = styled.header`
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #fff;
     border-bottom: 1px solid #eaeaea;
-    width: 100%;
-    max-width: 1440px;
-    height: 85px;
-    margin: 0 auto;
-    position: relative;
 `;
 
 export const Logo = styled.img`
@@ -26,10 +28,14 @@ export const Nav = styled.nav``;
 
 export const MenuList = styled.ul`
     display: flex;
-    margin-left: 500px;
+    margin-left: 275px;
     gap: 28px;
     list-style: none;
     padding: 0;
+
+    @media (max-width: 1024px) {
+        display: none;
+    }
 `;
 
 export const MenuItem = styled.li`
@@ -54,7 +60,7 @@ export const StyledLink = styled(Link)<{ isActive: boolean }>`
 
 export const UserProfile = styled.div`
     display: flex;
-    margin-right: 15px;
+    margin-right: 10px;
     align-items: center;
     gap: 5px;
 `;
