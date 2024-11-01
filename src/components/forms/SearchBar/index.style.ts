@@ -1,6 +1,8 @@
+import styled from "@emotion/styled";
+
 import { SearchBarProps } from "@/components/forms/SearchBar/index";
 
-import styled from "@emotion/styled";
+import { flex_center } from "@/styles/utils";
 
 export const SearchBarWrapper = styled.div<SearchBarProps>`
     width: ${(props) => props.width};
@@ -35,9 +37,7 @@ export const SearchBtn = styled.button<SearchBarProps>`
     border: 0;
     border-radius: 50%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    ${flex_center}
 
     position: absolute;
     right: 0;
