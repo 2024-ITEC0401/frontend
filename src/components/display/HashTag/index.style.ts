@@ -8,5 +8,5 @@ export const HashTagElement = styled.div`
     color: var(--color-point);
 
     border-radius: 12px;
-    padding: 15px;
+    padding: 10px;
 `;
