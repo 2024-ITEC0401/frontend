@@ -9,6 +9,6 @@ export const Container = styled.div<{ active: boolean }>`
     padding: 5px 10px;
     border-radius: 6px;
 
-    color: ${(props) => (props.active ? "#EDFFEF" : "#0ECB81")};
-    background-color: ${(props) => (props.active ? "#0ECB81" : "#EDFFEF")};
+    color: ${(props) => (props.active ? "var(--color-secondary)" : "var(--color-point)")};
+    background-color: ${(props) => (props.active ? "var(--color-point)" : "var(--color-secondary)")};
 `;
