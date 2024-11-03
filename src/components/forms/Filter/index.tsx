@@ -36,7 +36,7 @@ export const Filter = ({ width, height, filterParams }: FilterProps) => {
                                 return (
                                     <HashTag
                                         key={index}
-                                        active={searchParams.has(filterKey, filterName)}
+                                        active={!searchParams.has(filterKey, filterName)}
                                         onClick={() => handleFilter({ filterKey, filterValue: filterName })}
                                     >
                                         {displayName}
