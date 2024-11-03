@@ -43,7 +43,9 @@ export const MenuItem = styled.li`
     margin-left: 20px;
 `;
 
-export const StyledLink = styled(Link)<{ isActive: boolean }>`
+export const StyledLink = styled(Link, {
+    shouldForwardProp: (prop) => prop !== "isActive",
+})<{ isActive: boolean }>`
     color: ${({ isActive }) => (isActive ? "var(--color-primary)" : "#333")};
     text-decoration: none;
     font-size: 16px;
