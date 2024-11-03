@@ -7,7 +7,6 @@ import Navbar from "@/components/navigation/Navbar";
 export const Main = styled.main`
     width: 100%;
     max-width: 1440px;
-
     margin: 0px auto;
     padding: 20px;
 `;

@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 
-import MyClosetPage from "@/pages/myCloset";
-import RecommendCodiPage from "@/pages/RecommendCodiPage";
 import { ProductRecommendPage } from "@/pages/Recommend/ProductRecommendPage";
+import RecommendCodiPage from "@/pages/RecommendCodiPage";
+import MyClosetPage from "@/pages/myCloset";
 
 import { RootLayout } from "@/layouts/RootLayout";
 
