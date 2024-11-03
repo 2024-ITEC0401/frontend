@@ -1,4 +1,4 @@
-import { Text } from "@/components/typography/Text/Text";
+import { Text } from "@/components/typography/Text";
 
 import * as Styles from "./index.style";
 
@@ -8,7 +8,7 @@ export interface ClothCardProps {
 }
 
 export const ClothCard = ({ imgSrc, title }: ClothCardProps) => {
-    return (
+    return ( 
         <Styles.Wrapper>
             <Styles.Image src={imgSrc} alt="cloth-card-img" />
             <Styles.Title>

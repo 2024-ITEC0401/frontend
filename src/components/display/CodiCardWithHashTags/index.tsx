@@ -1,6 +1,6 @@
 import * as Styles from "@/components/display/CodiCardWithHashTags/index.style";
 import { HashTag } from "@/components/display/HashTag";
-import { Text } from "@/components/typography/Text/Text";
+import { Text } from "@/components/typography/Text";
 
 import CodiImg from "@/assets/common/Codi.png";
 
