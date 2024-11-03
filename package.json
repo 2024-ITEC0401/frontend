@@ -38,6 +38,7 @@
         "@storybook/react": "^8.3.1",
         "@storybook/react-vite": "^8.3.1",
         "@storybook/test": "^8.3.1",
+        "@tanstack/eslint-plugin-query": "^5.59.7",
         "@testing-library/dom": "^10.4.0",
         "@testing-library/react": "^16.0.1",
         "@trivago/prettier-plugin-sort-imports": "^4.3.0",
