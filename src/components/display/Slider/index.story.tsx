@@ -28,7 +28,9 @@ export const Primary: Story = {
             { title: "카고 팬츠", count: 3 },
             { title: "회색 코트", count: 2 },
         ],
+
         Component: RecommendedProductCard,
+        slidersPerView: 5,
     },
     argTypes: {
         variant: {
@@ -54,6 +56,7 @@ export const Secondary: Story = {
             { title: "여름 깔끔한 실루엣", hashTags: ["#여름", "#깔끔한", "#시원한"] },
         ],
         Component: CodiCardWithHashTags,
+        slidersPerView: 5,
     },
     argTypes: {
         variant: {
@@ -80,6 +83,7 @@ export const Tertiary: Story = {
             { imgSrc: sampleCodiImg, title: "회색 코트" },
         ],
         Component: ClothItem,
+        slidersPerView: 5,
     },
     argTypes: {
         variant: {
