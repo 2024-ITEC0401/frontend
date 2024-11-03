@@ -5,14 +5,14 @@ const config: Config = {
     testEnvironment: "jsdom",
     testMatch: ["**/__tests__/**/*.ts?(x)", "**/?(*.)+(test).ts?(x)"],
     transform: {
-        "^.+\\.(js|ts)$": "ts-jest",
+        "^.+\\.tsx?$": "ts-jest",
     },
-    transformIgnorePatterns: [
-        "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.js$",
-        "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.ts$",
-        "/node_modules/(?![@autofiy/autofiyable|@autofiy/property]).+\\.tsx$",
-    ],
-    moduleNameMapper: { "@/(.*)$": "<rootDir>/src/$1" },
+    transformIgnorePatterns: ["<rootDir>/node_modules/"],
+    moduleNameMapper: {
+        "\\.(gif|jpg|jpeg|png|svg)$": "<rootDir>/fileMock.js",
+        "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+        "@/(.*)$": "<rootDir>/src/$1",
+    },
 };
 
 export default config;
