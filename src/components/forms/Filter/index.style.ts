@@ -8,8 +8,7 @@ export const Wrapper = styled.div<{ width?: SizeProp; height?: SizeProp }>`
     width: ${(props) => props.width};
     height: ${(props) => props.height ?? "fit-content"};
 
-    margin: 10px;
-    padding: 12px;
+    padding: 16px;
     border: 1px solid #dedede;
     border-radius: 15px;
 `;
@@ -20,5 +19,6 @@ export const FilterKey = styled.p`
 
 export const FilterItemContainer = styled.div`
     display: flex;
+    flex-wrap: wrap;
     gap: 6px;
 `;

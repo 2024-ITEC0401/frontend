@@ -58,6 +58,6 @@ describe("Filter 컴포넌트", () => {
         const el = screen.getByText("맑음");
         fireEvent.click(el);
 
-        expect(handleFilterMock).toHaveBeenCalledWith({ filterKey: "weather", filterValue: "sunny" });
+        expect(handleFilterMock).toHaveBeenCalledWith({ filterValue: "sunny" });
     });
 });

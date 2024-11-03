@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { Text } from "@/components/typography/Text/Text";
+import { Text } from "@/components/typography/Text";
 
 import { useImageUpload } from "@/hooks/useImageUpload";
 

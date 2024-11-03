@@ -1,23 +1,27 @@
 import { useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 
-type handleFilterArgs = { filterKey: string; filterValue: string };
+type handleFilterArgs = { filterValue: string };
 
 export const useFilter = () => {
     const [searchParams, setSearchParams] = useSearchParams();
 
     const handleFilter = useCallback(
-        ({ filterKey, filterValue }: handleFilterArgs) => {
+        ({ filterValue }: handleFilterArgs) => {
             const newSearchParams = new URLSearchParams(searchParams.toString());
 
-            const currentValues = newSearchParams.getAll(filterKey);
+            const currentValues = newSearchParams.get("filter")?.split(",") || [];
 
             if (currentValues.includes(filterValue)) {
                 const updatedValues = currentValues.filter((value) => value !== filterValue);
-                newSearchParams.delete(filterKey);
-                updatedValues.forEach((value) => newSearchParams.append(filterKey, value));
+                if (updatedValues.length > 0) {
+                    newSearchParams.set("filter", updatedValues.join(","));
+                } else {
+                    newSearchParams.delete("filter");
+                }
             } else {
-                newSearchParams.append(filterKey, filterValue);
+                currentValues.push(filterValue);
+                newSearchParams.set("filter", currentValues.join(","));
             }
 
             setSearchParams(newSearchParams);

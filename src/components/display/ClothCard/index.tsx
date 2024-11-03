@@ -1,4 +1,4 @@
-import { Text } from "@/components/typography/Text/Text";
+import { Text } from "@/components/typography/Text";
 
 import * as Styles from "./index.style";
 
