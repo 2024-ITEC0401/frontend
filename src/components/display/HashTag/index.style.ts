@@ -13,4 +13,6 @@ export const HashTagElement = styled.div<{ active?: boolean }>`
 
     border-radius: 12px;
     padding: 10px;
+
+    font-size: var(--font-size-xs);
 `;
