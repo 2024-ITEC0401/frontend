@@ -3,6 +3,7 @@ import { Chip } from "@/components/display/Chip";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Chip> = {
+    title: "display/Chip",
     component: Chip,
 };
 
