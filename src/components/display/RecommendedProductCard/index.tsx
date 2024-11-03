@@ -4,11 +4,11 @@ import { Text } from "@/components/typography/Text";
 import Cloth from "@/assets/common/Cloth.png";
 
 export interface RecommendedProductCardProps {
-    width: SizeProp;
-    height: SizeProp;
+    width?: SizeProp;
+    height?: SizeProp;
 
-    title?: string;
-    count?: number;
+    title: string;
+    count: number;
 }
 
 export const RecommendedProductCard = (props: RecommendedProductCardProps) => {
