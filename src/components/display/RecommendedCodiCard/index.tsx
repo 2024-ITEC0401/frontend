@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
 import { HashTag } from "@/components/display/HashTag";
-import { Text } from "@/components/typography/Text/Text";
+import { Text } from "@/components/typography/Text";
 
 import iconHeartActive from "@/assets/icon-heart__active.svg";
 import iconHeartInActive from "@/assets/icon-heart__inactive.svg";

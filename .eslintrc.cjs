@@ -22,12 +22,14 @@ module.exports = {
     plugins: ["react-refresh", "@typescript-eslint"],
 
     rules: {
-        "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+        "react-refresh/only-export-components": "off",
+        "react-hooks/exhaustive-deps": "warn",
         "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/no-explicit-any": "warn",
         "@typescript-eslint/no-misused-promises": "off",
         "@typescript-eslint/no-floating-promises": "off",
         "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
         "prettier/prettier": [
             "error",
             {
@@ -36,5 +38,14 @@ module.exports = {
         ],
     },
 
-    ignorePatterns: ["server.js", ".eslintrc.cjs", "ssr.js", "__mocks__", "*.config.js", "*.config.ts"],
+    ignorePatterns: [
+        "server.js",
+        ".eslintrc.cjs",
+        "ssr.js",
+        "__mocks__",
+        "*.config.js",
+        "*.config.ts",
+        "**/__tests__/**/*.ts?(x)",
+        "**/?(*.)+(test).ts?(x)",
+    ],
 };

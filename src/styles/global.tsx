@@ -1,5 +1,6 @@
-import design from "./design.json";
 import { css } from "@emotion/react";
+
+import design from "./design.json";
 
 export const globalStyles = css`
     :root {
