@@ -1,5 +1,6 @@
 import { RecommendedProductCard } from "@/components/display/RecommendedProductCard";
 import { SectionHeader } from "@/components/display/SectionHeader";
+import { Slider } from "@/components/display/Slider";
 import { Text } from "@/components/typography/Text";
 
 import * as Styles from "./index.style";
@@ -18,17 +19,12 @@ export const ProductRecommendPage = () => {
                 <Text size="xl" weight="bold" color="primary">
                     맞춤 상품 추천
                 </Text>
-                <Styles.ColorItem>
-                    {recommendedProducts.map((product, index) => (
-                        <RecommendedProductCard
-                            key={index}
-                            width="260px"
-                            height="300px"
-                            title={product.title}
-                            count={product.count}
-                        />
-                    ))}
-                </Styles.ColorItem>
+                <Slider
+                    variant="primary"
+                    slidersPerView={4}
+                    sliderItems={recommendedProducts}
+                    Component={RecommendedProductCard}
+                ></Slider>
             </Styles.Container>
 
             <Styles.Container>
