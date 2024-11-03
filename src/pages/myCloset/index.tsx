@@ -26,9 +26,9 @@ const MyClosetPage = () => {
     useEffect(() => {
         const fetchClothes = async () => {
             try {
-                const response = await axios.get("/closet", {
+                const response = await axios.get<Cloth[]>("/closet", {
                     headers: {
-                        Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
+                        Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN as string}`,
                     },
                 });
                 setClothes(response.data);

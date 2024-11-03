@@ -8,7 +8,17 @@ export const clothesMockHandlers = [
     }),
 ];
 
-export const CLOTHES_MOCKING_DATA = [
+interface Cloth {
+    id: number;
+    brandName: string;
+    imgSrc: string;
+    category: string;
+    subCategory: string;
+    color: string;
+    size: string;
+}
+
+export const CLOTHES_MOCKING_DATA: Cloth[] = [
     {
         id: 1,
         brandName: "브랜드 이름",
