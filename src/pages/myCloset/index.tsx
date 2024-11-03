@@ -28,7 +28,7 @@ const MyClosetPage = () => {
             try {
                 const response = await axios.get("/closet", {
                     headers: {
-                        "Authorization": `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
+                        Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
                     },
                 });
                 setClothes(response.data);
@@ -38,22 +38,12 @@ const MyClosetPage = () => {
         };
         fetchClothes();
     }, []);
-    
 
     return (
         <PageWrapper>
-            <CategorySection
-                category="니트 / 스웨터"
-                clothes={filterClothesByCategory(clothes, "니트 / 스웨터")}
-            />
-            <CategorySection
-                category="셔츠 / 블라우스"
-                clothes={filterClothesByCategory(clothes, "셔츠 / 블라우스")}
-            />
-            <CategorySection
-                category="맨투맨 / 후드티"
-                clothes={filterClothesByCategory(clothes, "맨투맨 / 후드티")}
-            />
+            <CategorySection category="니트 / 스웨터" clothes={filterClothesByCategory(clothes, "니트 / 스웨터")} />
+            <CategorySection category="셔츠 / 블라우스" clothes={filterClothesByCategory(clothes, "셔츠 / 블라우스")} />
+            <CategorySection category="맨투맨 / 후드티" clothes={filterClothesByCategory(clothes, "맨투맨 / 후드티")} />
             <CategorySection
                 category="정장 / 세미 정장"
                 clothes={filterClothesByCategory(clothes, "맨투맨 / 후드티")}
