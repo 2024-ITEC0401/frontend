@@ -17,6 +17,7 @@ type CSSRelativeUnit =
     | "lvw"
     | "lvh"
     | "dvw"
-    | "dvh";
+    | "dvh"
+    | "%";
 
 type SizeProp = `${number}${CSSAbsoluteUnit | CSSRelativeUnit}`;

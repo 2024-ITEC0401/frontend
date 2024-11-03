@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { Text } from "@/components/typography/Text/Text";
+import { Text } from "@/components/typography/Text";
 
 import { useImageUpload } from "@/hooks/useImageUpload";
 
@@ -20,7 +20,7 @@ export const FileUpload = ({ width, height, onChange }: FileUploadProps) => {
     useEffect(() => {
         onChange && onChange(image);
         console.log(image);
-    }, [image]);
+    }, [image, onChange]);
 
     return (
         <Styles.Wrapper width={width} height={height} onClick={handleImageUpload}>

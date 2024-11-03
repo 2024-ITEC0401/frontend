@@ -23,11 +23,11 @@ export const Button = styled.button`
 `;
 
 export const Arrow = styled.svg`
-  width: 24px;
-  height: 24px;
-  fill: none;
-  stroke: black;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 `;
