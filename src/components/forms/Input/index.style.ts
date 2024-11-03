@@ -26,7 +26,7 @@ export const InputElement = styled.input`
     padding: 0px 20px;
 
     &:focus {
-        outline: none;
+        outline: 2px solid var(--color-primary);
     }
 `;
 
