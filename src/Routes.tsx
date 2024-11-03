@@ -8,7 +8,7 @@ export const Router = () => {
     return (
         <Routes>
             <Route path="/" element={<RootLayout />}>
-                <Route path="/mycloset" element={<MyClosetPage />}></Route>
+                <Route path="/my-closet" element={<MyClosetPage />}></Route>
             </Route>
         </Routes>
     );
