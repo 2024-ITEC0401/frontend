@@ -2,9 +2,9 @@ import styled from "@emotion/styled";
 
 import { flex_center } from "@/styles/utils";
 
-export const Wrapper = styled.div<{ width: SizeProp; height: SizeProp }>`
-    width: ${(props) => props.width};
-    height: ${(props) => props.height};
+export const Wrapper = styled.div<{ width?: SizeProp; height?: SizeProp }>`
+    width: ${(props) => (props ? props.width : "250px")};
+    height: ${(props) => (props ? props.height : "290px")};
 
     ${flex_center};
     flex-direction: column;

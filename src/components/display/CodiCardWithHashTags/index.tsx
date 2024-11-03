@@ -5,8 +5,8 @@ import { Text } from "@/components/typography/Text";
 import CodiImg from "@/assets/common/Codi.png";
 
 export interface CodiCardWithHashTagsProps {
-    width: SizeProp;
-    height: SizeProp;
+    width?: SizeProp;
+    height?: SizeProp;
 
     title: string;
     hashTags: string[];
