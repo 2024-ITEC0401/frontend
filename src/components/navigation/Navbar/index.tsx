@@ -16,7 +16,7 @@ const Navbar = () => {
     };
 
     const menuItems = [
-        { name: "내 옷장 관리", link: "/wardrobe" },
+        { name: "내 옷장 관리", link: "/my-closet" },
         { name: "맞춤 상품 추천", link: "/recommend-products" },
         { name: "코디 추천", link: "/recommend-coords" },
         { name: "마이페이지", link: "/mypage" },
