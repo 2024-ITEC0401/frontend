@@ -13,7 +13,7 @@ export const Dropdown = (props: DropdownProps) => {
         (event: React.ChangeEvent<HTMLSelectElement>) => {
             props.setSelectedOption(event.target.value);
         },
-        [props.setSelectedOption],
+        [props],
     );
 
     return (

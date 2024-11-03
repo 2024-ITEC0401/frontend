@@ -20,7 +20,7 @@ export const FileUpload = ({ width, height, onChange }: FileUploadProps) => {
     useEffect(() => {
         onChange && onChange(image);
         console.log(image);
-    }, [image]);
+    }, [image, onChange]);
 
     return (
         <Styles.Wrapper width={width} height={height} onClick={handleImageUpload}>

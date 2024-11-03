@@ -9,24 +9,24 @@ export interface ColorProps extends SelectedColor {
     setSelectedColor?: React.Dispatch<React.SetStateAction<SelectedColor | undefined>>;
 }
 
-export const Color = (props: ColorProps) => {
+export const Color = ({ setSelectedColor, color, colorLabel, colorValue, active }: ColorProps) => {
     const handleClick = useCallback(() => {
-        if (props.setSelectedColor) {
-            props.setSelectedColor({
-                color: props.color,
-                colorLabel: props.colorLabel,
-                colorValue: props.colorValue,
+        if (setSelectedColor) {
+            setSelectedColor({
+                color: color,
+                colorLabel: colorLabel,
+                colorValue: colorValue,
             });
         }
-    }, []);
+    }, [color, colorLabel, colorValue, setSelectedColor]);
 
     return (
         <Styles.Wrapper>
-            <Styles.Container active={props.active} color={props.color} onClick={handleClick}>
-                <Styles.Item color={props.color} />
+            <Styles.Container active={active} color={color} onClick={handleClick}>
+                <Styles.Item color={color} />
             </Styles.Container>
             <Styles.Label>
-                <Text size="s">{props.colorLabel}</Text>
+                <Text size="s">{colorLabel}</Text>
             </Styles.Label>
         </Styles.Wrapper>
     );

@@ -1,6 +1,6 @@
-import { FileUploadProps } from "@/components/forms/FileUpload";
-
 import styled from "@emotion/styled";
+
+import { FileUploadProps } from "@/components/forms/FileUpload";
 
 export const Wrapper = styled.button<FileUploadProps>`
     display: flex;

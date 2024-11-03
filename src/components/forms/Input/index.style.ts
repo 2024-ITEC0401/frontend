@@ -1,5 +1,6 @@
-import { InputProps } from "./index";
 import styled from "@emotion/styled";
+
+import { InputProps } from "./index";
 
 export const InputWrapper = styled.div<InputProps>`
     width: ${(props) => props.width};

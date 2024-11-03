@@ -19,16 +19,16 @@ export interface ColorPaletteProps {
     onChange: (selectedColor: SelectedColor | undefined) => void;
 }
 
-export const ColorPalette = (props: ColorPaletteProps) => {
-    const [selectedColor, setSelectedColor] = useState<SelectedColor | undefined>(props.defaultSelectedColor);
+export const ColorPalette = ({ width, height, colors, defaultSelectedColor, onChange }: ColorPaletteProps) => {
+    const [selectedColor, setSelectedColor] = useState<SelectedColor | undefined>(defaultSelectedColor);
 
     useEffect(() => {
-        props.onChange(selectedColor);
-    }, [selectedColor]);
+        onChange(selectedColor);
+    }, [selectedColor, onChange]);
 
     return (
-        <Styles.Wrapper width={props.width} height={props.height}>
-            {props.colors.map((color, index) => {
+        <Styles.Wrapper width={width} height={height}>
+            {colors.map((color, index) => {
                 return (
                     <Color
                         key={index}
