@@ -2,15 +2,17 @@ import { RecommendedProductCard } from "@/components/display/RecommendedProductC
 import { SectionHeader } from "@/components/display/SectionHeader";
 import { Text } from "@/components/typography/Text";
 
+import ClothImg from "@/assets/common/Cloth.png";
+
 import * as Styles from "./index.style";
 
 export const RecommendProductPage = () => {
     const recommendedProducts = [
-        { title: "흰색 롱 슬리브", count: 3 },
-        { title: "청바지", count: 2 },
-        { title: "레더자켓", count: 4 },
-        { title: "카고 팬츠", count: 3 },
-        { title: "회색 코트", count: 2 },
+        { imgSrc: ClothImg, title: "흰색 롱 슬리브", count: 3 },
+        { imgSrc: ClothImg, title: "청바지", count: 2 },
+        { imgSrc: ClothImg, title: "레더자켓", count: 4 },
+        { imgSrc: ClothImg, title: "카고 팬츠", count: 3 },
+        { imgSrc: ClothImg, title: "회색 코트", count: 2 },
     ];
     return (
         <Styles.Wrapper>
@@ -24,6 +26,7 @@ export const RecommendProductPage = () => {
                             key={index}
                             width="260px"
                             height="300px"
+                            imgSrc={product.imgSrc}
                             title={product.title}
                             count={product.count}
                         />
@@ -43,6 +46,7 @@ export const RecommendProductPage = () => {
                                 key={index}
                                 width="260px"
                                 height="300px"
+                                imgSrc={product.imgSrc}
                                 title={product.title}
                                 count={product.count}
                             />
@@ -57,6 +61,7 @@ export const RecommendProductPage = () => {
                                 key={index}
                                 width="260px"
                                 height="300px"
+                                imgSrc={product.imgSrc}
                                 title={product.title}
                                 count={product.count}
                             />
@@ -71,6 +76,7 @@ export const RecommendProductPage = () => {
                                 key={index}
                                 width="260px"
                                 height="300px"
+                                imgSrc={product.imgSrc}
                                 title={product.title}
                                 count={product.count}
                             />

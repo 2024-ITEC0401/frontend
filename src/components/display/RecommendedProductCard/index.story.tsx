@@ -1,5 +1,7 @@
 import { RecommendedProductCard } from "@/components/display/RecommendedProductCard";
 
+import ClothImg from "@/assets/common/Cloth.png";
+
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof RecommendedProductCard> = {
@@ -15,6 +17,7 @@ export const Default: Story = {
         width: "280px",
         height: "320px",
 
+        imgSrc: ClothImg,
         title: "흰색 롱 슬리브",
         count: 2,
     },
