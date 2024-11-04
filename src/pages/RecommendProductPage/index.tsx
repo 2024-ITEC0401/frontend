@@ -4,7 +4,7 @@ import { Text } from "@/components/typography/Text";
 
 import * as Styles from "./index.style";
 
-export const ProductRecommendPage = () => {
+export const RecommendProductPage = () => {
     const recommendedProducts = [
         { title: "흰색 롱 슬리브", count: 3 },
         { title: "청바지", count: 2 },
