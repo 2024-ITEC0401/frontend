@@ -1,16 +1,30 @@
 import { Text } from "@/components/typography/Text";
 
+import { StyleOption } from "@/pages/myPage/utils/styleList";
+
 import * as Styles from "./index.style";
 
-export interface StyleCardProps {
+export interface SelectedCard {
     imgSrc: string;
     koreanCategory: string;
     englishCategory: string;
 }
 
-const StyleCard = ({ imgSrc, koreanCategory, englishCategory }: StyleCardProps) => {
+export interface StyleCardProps extends SelectedCard {
+    id: number;
+    onChange?: (selectedCard: StyleOption | undefined) => void;
+    defaultSelectedCard?: SelectedCard;
+}
+
+const StyleCard = ({ id, imgSrc, koreanCategory, englishCategory, onChange }: StyleCardProps) => {
+    const handleClick = () => {
+        if (onChange) {
+            onChange({ imgSrc, koreanCategory, englishCategory } as StyleOption);
+        }
+    };
+
     return (
-        <Styles.Wrapper>
+        <Styles.Wrapper key={id} onClick={handleClick}>
             <Styles.Image src={imgSrc} alt="style-card-img" />
             <Styles.Category>
                 <Styles.KoreanCategory>
