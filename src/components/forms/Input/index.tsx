@@ -5,8 +5,8 @@ import { InputWrapper, InputElement, Label } from "@/components/forms/Input/inde
 export interface InputProps {
     width: SizeProp;
     height: SizeProp;
-
     label?: string;
+    onBlur?: () => void;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
