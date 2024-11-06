@@ -28,11 +28,11 @@ const MyPage = () => {
     };
 
     const handleSkinToneSelect = (tone: SkinToneOption) => {
-        setSelectedSkinTone(tone);
+        setSelectedSkinTone((prevTone) => (prevTone === tone ? null : tone));
     };
 
     const handleAgeSelect = (age: AgeOption) => {
-        setSelectedAge(age);
+        setSelectedAge((prevAge) => (prevAge === age ? null : age));
     };
 
     const handleColorSelect = (color: SelectedColor) => {
