@@ -5,6 +5,7 @@ import * as Styles from "./index.style";
 export interface ChipProps {
     active?: boolean;
     children?: React.ReactNode;
+    onClick?: () => void;
 }
 
 export const Chip = ({ children, active = false }: ChipProps) => {
