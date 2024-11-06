@@ -4,6 +4,7 @@ export const Container = styled.div<{ active: boolean }>`
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 
     width: fit-content;
     padding: 5px 10px;
