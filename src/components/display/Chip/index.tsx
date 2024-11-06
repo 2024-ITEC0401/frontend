@@ -8,9 +8,9 @@ export interface ChipProps {
     onClick?: () => void;
 }
 
-export const Chip = ({ children, active = false }: ChipProps) => {
+export const Chip = ({ children, active = false, onClick }: ChipProps) => {
     return (
-        <Styles.Container active={active}>
+        <Styles.Container active={active} onClick={onClick}>
             <Text size="s" weight={600}>
                 {children}
             </Text>
