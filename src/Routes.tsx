@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 
-import { ProductRecommendPage } from "@/pages/Recommend/ProductRecommendPage";
 import RecommendCodiPage from "@/pages/RecommendCodiPage";
 import SignInPage from "@/pages/SignInPage";
+import { RecommendProductPage } from "@/pages/RecommendProductPage";
 import MyClosetPage from "@/pages/myCloset";
 
 import { AuthLayout } from "@/layouts/AuthLayout";
@@ -13,8 +13,8 @@ export const Router = () => {
         <Routes>
             <Route path="/" element={<RootLayout />}>
                 <Route path="/my-closet" element={<MyClosetPage />}></Route>
-                <Route path="recommend/codi" element={<RecommendCodiPage />} />
-                <Route path="/recommend/product" element={<ProductRecommendPage />} />
+                <Route path="/recommend/codi" element={<RecommendCodiPage />} />
+                <Route path="/recommend/product" element={<RecommendProductPage />} />
             </Route>
 
             <Route path="/auth" element={<AuthLayout />}>

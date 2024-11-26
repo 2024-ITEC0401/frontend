@@ -45,6 +45,7 @@ module.exports = {
         "__mocks__",
         "*.config.js",
         "*.config.ts",
+        "*.setup.ts",
         "**/__tests__/**/*.ts?(x)",
         "**/?(*.)+(test).ts?(x)",
     ],
