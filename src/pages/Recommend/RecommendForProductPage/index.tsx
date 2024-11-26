@@ -1,10 +1,9 @@
-import { ClothItem } from "@/components/display/ClothItem";
-import { CodiCardWithHashTags } from "@/components/display/CodiCardWithHashTags";
-import { Slider } from "@/components/display/Slider";
-import { Text } from "@/components/typography/Text";
-
 import * as Styles from "../ProductRecommendPage/index.style";
 import sampleCodiImg from "@/__mocks__/sample-codi.jpg";
+import { Text } from "@/components/typography/Text";
+import { ClothItem } from "@/entities/clothes/ui/ClothItem";
+import { CodiCardWithHashTags } from "@/entities/clothes/ui/CodiCardWithHashTags";
+import { Slider } from "@/widgets/recommend/Slider";
 
 export const RecommendForProductPage = () => {
     const products = [

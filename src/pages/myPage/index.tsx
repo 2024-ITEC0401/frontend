@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 import { Chip } from "@/components/display/Chip";
-import StyleCard, { SelectedCard } from "@/components/display/StyleCard";
-import { ColorPalette, SelectedColor } from "@/components/forms/ColorPalette";
 import { Input } from "@/components/forms/Input";
 
 import * as Styles from "@/pages/myPage/index.style";
@@ -10,6 +8,9 @@ import { ageList, type AgeOption } from "@/pages/myPage/utils/ageList";
 import { colorList } from "@/pages/myPage/utils/colorList";
 import { skintoneList, type SkinToneOption } from "@/pages/myPage/utils/skintoneList";
 import { styleList, type StyleOption } from "@/pages/myPage/utils/styleList";
+
+import StyleCard, { SelectedCard } from "@/entities/clothes/ui/StyleCard";
+import { ColorPalette, SelectedColor } from "@/entities/color/ui/ColorPalette/ColorPalette";
 
 const MyPage = () => {
     const [height, setHeight] = useState<string>("");

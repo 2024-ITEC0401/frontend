@@ -24,9 +24,9 @@
 
         "allowJs": true,
 
-        "baseUrl": "src",
+        "baseUrl": ".",
         "paths": {
-            "@/*": ["*"]
+            "@/*": ["./src/*"]
         },
 
         "jsxImportSource": "@emotion/react"

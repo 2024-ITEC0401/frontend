@@ -2,10 +2,11 @@ import { useRef } from "react";
 
 import styled from "@emotion/styled";
 
-import { ClothCard } from "@/components/display/ClothCard";
 import ArrowButton from "@/components/forms/Button/ArrowButton";
 
 import { Cloth } from "@/pages/myCloset";
+
+import { ClothCard } from "@/entities/clothes/ui/ClothCard";
 
 interface ClothesListProps {
     clothes: Cloth[];

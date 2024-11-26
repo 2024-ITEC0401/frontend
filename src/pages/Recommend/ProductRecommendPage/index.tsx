@@ -1,9 +1,8 @@
-import { RecommendedProductCard } from "@/components/display/RecommendedProductCard";
-import { SectionHeader } from "@/components/display/SectionHeader";
-import { Slider } from "@/components/display/Slider";
-import { Text } from "@/components/typography/Text";
-
 import * as Styles from "./index.style";
+import { SectionHeader } from "@/components/display/SectionHeader";
+import { Text } from "@/components/typography/Text";
+import { RecommendedProductCard } from "@/entities/clothes/ui/RecommendedProductCard";
+import { Slider } from "@/widgets/recommend/Slider";
 
 export const ProductRecommendPage = () => {
     const recommendedProducts = [

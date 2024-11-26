@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 
 import axios from "axios";
 
-import { RecommendedCodiCard } from "@/components/display/RecommendedCodiCard";
-import { Filter } from "@/components/forms/Filter";
 import { Text } from "@/components/typography/Text";
 
-import { filterParams } from "@/constants/filterParams";
-
 import * as Styles from "./index.style";
+import { RecommendedCodiCard } from "@/entities/clothes/ui/RecommendedCodiCard";
+import { filterParams } from "@/entities/filter/config/params";
+import { Filter } from "@/entities/filter/ui/Filter";
 
 export interface Codi {
     clothId: number;
