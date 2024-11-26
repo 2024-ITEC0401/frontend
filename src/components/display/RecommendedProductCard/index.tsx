@@ -1,12 +1,11 @@
 import * as Styles from "@/components/display/RecommendedProductCard/index.style";
 import { Text } from "@/components/typography/Text";
 
-import Cloth from "@/assets/common/Cloth.png";
-
 export interface RecommendedProductCardProps {
     width: SizeProp;
     height: SizeProp;
 
+    imgSrc?: string;
     title?: string;
     count?: number;
 }
@@ -14,7 +13,7 @@ export interface RecommendedProductCardProps {
 export const RecommendedProductCard = (props: RecommendedProductCardProps) => {
     return (
         <Styles.Wrapper width={props.width} height={props.height}>
-            <Styles.ProductImg src={Cloth} />
+            <Styles.ProductImg src={props.imgSrc} />
             <Text size="l" weight="bold">
                 {props.title}
             </Text>
