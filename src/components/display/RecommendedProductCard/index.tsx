@@ -2,8 +2,8 @@ import * as Styles from "@/components/display/RecommendedProductCard/index.style
 import { Text } from "@/components/typography/Text";
 
 export interface RecommendedProductCardProps {
-    width: SizeProp;
-    height: SizeProp;
+    width?: SizeProp;
+    height?: SizeProp;
 
     imgSrc?: string;
     title?: string;

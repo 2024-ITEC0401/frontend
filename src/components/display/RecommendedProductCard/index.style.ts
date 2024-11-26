@@ -1,16 +1,16 @@
 import styled from "@emotion/styled";
 
-import { RecommendedProductCardProps } from "@/components/display/RecommendedProductCard";
-
 import { flex_center } from "@/styles/utils";
 
-export const Wrapper = styled.div<RecommendedProductCardProps>`
-    width: ${(props) => props.width};
-    height: ${(props) => props.height};
+export const Wrapper = styled.div<{ width?: SizeProp; height?: SizeProp }>`
+    width: ${(props) => (props ? props.width : "280px")};
+    height: ${(props) => (props ? props.height : "320px")};
 
     ${flex_center}
     flex-direction: column;
     gap: 20px;
+
+    background-color: #fff;
 
     border: 1px solid var(--color-lightgray);
     border-radius: 12px;

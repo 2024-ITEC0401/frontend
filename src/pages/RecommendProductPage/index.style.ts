@@ -19,7 +19,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
-    gap: 40px;
+    gap: 30px;
 `;
 
 export const Items = styled.div`
@@ -42,17 +42,9 @@ export const Item = styled.div`
     gap: 20px;
 `;
 
-export const ColorItem = styled.div`
+export const TextContainer = styled.div`
     width: 100%;
-
-    background-color: var(--color-lightgray);
 
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-
-    padding: 20px 50px;
-    border-radius: 12px;
-
-    box-shadow: 0px 2px 10px 0px #00000010;
 `;
