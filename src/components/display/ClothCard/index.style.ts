@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
+    position: relative;
+
     display: flex;
     flex-direction: column;
 
@@ -35,4 +37,22 @@ export const Title = styled.h2`
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+`;
+
+export const PopOverButton = styled.button`
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20px;
+    height: 20px;
+
+    background: none;
+    border: 0;
+
+    cursor: pointer;
 `;
