@@ -16,19 +16,12 @@
         "^react",
         "<THIRD_PARTY_MODULES>",
 
-        "^(@emotion)(.*)$",
-
         "^(@/app)(.*)$",
         "^(@/pages)(.*)$",
-
-        "^(@/hooks)(.*)$",
-        "^(@/services)(.*)$",
-
-        "^(@/assets)(.*)$",
-        "^(@/constants)(.*)$",
-        "^(@/config)(.*)$",
-        "^(@/utils)(.*)$",
-        "^(@/styles)(.*)$",
+        "^(@/widgets)(.*)$",
+        "^(@/feature)(.*)$",
+        "^(@/entities)(.*)$",
+        "^(@/shared)(.*)$",
 
         "^(.*)/(.*)$"
     ],
