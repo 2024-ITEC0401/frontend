@@ -1,23 +1,15 @@
+import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 
-import styled from "@emotion/styled";
-
-import Navbar from "@/app/layouts/Navbar";
-
-export const Main = styled.main`
-    width: 100%;
-    max-width: 1440px;
-    margin: 0px auto;
-    padding: 20px;
-`;
+import { Header } from "@/app/layouts/Header";
 
 export const RootLayout = () => {
     return (
-        <>
-            <Navbar />
-            <Main>
+        <Fragment>
+            <Header />
+            <main className="w-full max-w-[1200px] mx-auto p-[10px]">
                 <Outlet />
-            </Main>
-        </>
+            </main>
+        </Fragment>
     );
 };
