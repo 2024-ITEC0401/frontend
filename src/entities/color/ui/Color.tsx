@@ -1,16 +1,13 @@
 import { useCallback } from "react";
 
-import { Text } from "@/components/typography/Text";
-
-import { SelectedColor } from "@/entities/color/ui/ColorPalette/ColorPalette";
-import * as Styles from "@/entities/color/ui/index.style";
+import { SelectedColor } from "@/entities/color/ui/ColorPalette";
 
 export interface ColorProps extends SelectedColor {
     active?: boolean;
     setSelectedColor?: React.Dispatch<React.SetStateAction<SelectedColor | undefined>>;
 }
 
-export const Color = ({ setSelectedColor, color, colorLabel, colorValue, active }: ColorProps) => {
+export const Color = ({ color, setSelectedColor, colorLabel, colorValue, active }: ColorProps) => {
     const handleClick = useCallback(() => {
         if (setSelectedColor) {
             setSelectedColor({
@@ -22,13 +19,15 @@ export const Color = ({ setSelectedColor, color, colorLabel, colorValue, active 
     }, [color, colorLabel, colorValue, setSelectedColor]);
 
     return (
-        <Styles.Wrapper>
-            <Styles.Container active={active} color={color} onClick={handleClick}>
-                <Styles.Item color={color} />
-            </Styles.Container>
-            <Styles.Label>
-                <Text size="s">{colorLabel}</Text>
-            </Styles.Label>
-        </Styles.Wrapper>
+        <div className="flex flex-col w-[60px] h-fit m-1 hover:cursor-pointer">
+            <div
+                className="w-[60px] h-[60px] p-1 border-4 rounded-full"
+                style={{ borderColor: active ? color : "#fff" }}
+                onClick={handleClick}
+            >
+                <div className="w-full h-full rounded-full" style={{ backgroundColor: color }} />
+            </div>
+            <p className="font-bold text-center">{colorLabel}</p>
+        </div>
     );
 };
