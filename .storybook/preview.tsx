@@ -2,10 +2,8 @@ import { Fragment } from "react";
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
 
+import "../src/app/styles/tailwind.css";
 import { Global } from "@emotion/react";
-
-import { globalStyles } from "../src/styles/global";
-import { resetStyles } from "../src/styles/reset";
 import type { Preview } from "@storybook/react";
 
 const preview: Preview = {
@@ -20,10 +18,7 @@ const preview: Preview = {
     decorators: (Story) => {
         return (
             <MemoryRouter>
-                <Fragment>
-                    <Story />
-                    <Global styles={[globalStyles, resetStyles]} />
-                </Fragment>
+                <Story />
             </MemoryRouter>
         );
     },

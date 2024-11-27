@@ -1,19 +1,12 @@
 import { BrowserRouter } from "react-router-dom";
 
-import { Global } from "@emotion/react";
-
 import { Router } from "@/app/Routes";
-import { globalStyles } from "@/app/styles/global";
-
-import { resetStyles } from "@/styles/reset";
+import "@/app/styles/tailwind.css";
 
 export default function App() {
     return (
-        <>
-            <Global styles={[resetStyles, globalStyles]} />
-            <BrowserRouter>
-                <Router />
-            </BrowserRouter>
-        </>
+        <BrowserRouter>
+            <Router />
+        </BrowserRouter>
     );
 }
