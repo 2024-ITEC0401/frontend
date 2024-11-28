@@ -22,7 +22,7 @@ export const Color = ({ color, setSelectedColor, colorLabel, colorValue, active 
         <div className="flex flex-col w-[60px] h-fit m-1 hover:cursor-pointer">
             <div
                 className="w-[60px] h-[60px] p-1 border-4 rounded-full"
-                style={{ borderColor: active ? color : "#fff" }}
+                style={{ borderColor: active ? color : "#E3E3E3" }}
                 onClick={handleClick}
             >
                 <div className="w-full h-full rounded-full" style={{ backgroundColor: color }} />
