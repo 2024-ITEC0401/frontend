@@ -12,7 +12,7 @@ export interface RecommendedCodiCardProps {
 
 export const RecommendedCodiCard = ({ imgSrc, title, hashTags, description, createdAt }: RecommendedCodiCardProps) => {
     return (
-        <Card className="w-full max-w-[820px] h-[200px] p-4 flex">
+        <Card className="w-full max-w-[1200px] h-[200px] p-4 flex">
             <img src={imgSrc} alt="" className="h-full mr-4 rounded-md aspect-square" />
             <div className="flex flex-col justify-center gap-1">
                 <h1 className="text-xl font-bold">{title}</h1>
