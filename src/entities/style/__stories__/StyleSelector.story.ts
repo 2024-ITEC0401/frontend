@@ -1,0 +1,21 @@
+import { StyleSelector } from "@/entities/style/ui/StyleSelector";
+
+import type { Meta, StoryObj } from "@storybook/react";
+
+const meta: Meta<typeof StyleSelector> = {
+    title: "StyleSelector",
+    component: StyleSelector,
+};
+
+export default meta;
+type Story = StoryObj<typeof StyleSelector>;
+
+export const Default: Story = {
+    args: {
+        className: "w-full max-w-[400px]",
+        placeholder: "스타일을 선택해주세요",
+        onStyleChange: (style: string) => {
+            console.log(style);
+        },
+    },
+};
