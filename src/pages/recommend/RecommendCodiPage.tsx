@@ -10,9 +10,9 @@ export default function RecommendCodiPage() {
         <div>
             <h1 className="my-4 text-xl font-bold">코디 추천</h1>
 
-            <section className="flex gap-2">
-                <RecommendationFilter filters={recommendationFilter} className="w-[30%] h-fit" />
-                <div className="w-[60%] flex flex-col gap-2">
+            <section className="flex flex-col gap-2 lg:flex-row">
+                <RecommendationFilter filters={recommendationFilter} className="lg:w-[30%] h-fit sticky" />
+                <div className="flex flex-col gap-2 lg:w-auto">
                     {Array.from({ length: 10 }).map((_, key) => {
                         return (
                             <RecommendedCodiCard

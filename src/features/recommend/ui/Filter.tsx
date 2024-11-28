@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import { Search } from "lucide-react";
+import { RefreshCcw, Search } from "lucide-react";
 
 import { RecommendationFilterType } from "@/features/recommend/config/filter";
 import { useRecommendationFilter } from "@/features/recommend/hooks/useRecommendationFilter";
@@ -19,13 +19,23 @@ export interface RecommendationFilterProps {
 }
 
 export const RecommendationFilter = ({ className, filters }: RecommendationFilterProps) => {
-    const { handleFilter, searchParams } = useRecommendationFilter();
+    const { handleFilter, resetFilter, handleSearch, searchRef, searchParams } = useRecommendationFilter();
 
     return (
-        <Card className={cn(className, "p-4 sticky top-2")}>
+        <Card className={cn(className, "p-4 lg:sticky top-2 flex-shrink-0 static")}>
             <div className="relative flex gap-2 h-[40px]">
-                <Input placeholder="검색" className="absolute rounded-full h-[40px]"></Input>
-                <Button className="absolute right-0 rounded-full h-[40px] w-[40px] flex flex-center justify-center">
+                <Input
+                    ref={searchRef}
+                    placeholder="검색"
+                    className="absolute rounded-full h-[40px]"
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") handleSearch();
+                    }}
+                ></Input>
+                <Button
+                    className="absolute right-0 rounded-full h-[40px] w-[40px] flex flex-center justify-center"
+                    onClick={handleSearch}
+                >
                     <Search size={4} />
                 </Button>
             </div>
@@ -59,6 +69,11 @@ export const RecommendationFilter = ({ className, filters }: RecommendationFilte
                     );
                 })}
             </div>
+
+            <Button className="w-full mt-2" variant="outline" onClick={() => resetFilter()}>
+                <RefreshCcw />
+                필터 초기화
+            </Button>
         </Card>
     );
 };

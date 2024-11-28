@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 
 export type FilterType = {
@@ -7,6 +7,7 @@ export type FilterType = {
 };
 
 export const useRecommendationFilter = () => {
+    const searchRef = useRef<HTMLInputElement>(null);
     const [searchParams, setSearchParams] = useSearchParams();
 
     const handleFilter = useCallback(
@@ -23,8 +24,25 @@ export const useRecommendationFilter = () => {
         [searchParams],
     );
 
+    const handleSearch = useCallback(() => {
+        const newSearchParams = new URLSearchParams(searchParams);
+        const key = searchRef.current?.value || "";
+
+        if (newSearchParams.get("search")?.includes(key)) newSearchParams.delete("search");
+        else newSearchParams.set("search", key);
+
+        setSearchParams(newSearchParams);
+    }, [searchParams]);
+
+    const resetFilter = useCallback(() => {
+        setSearchParams("");
+    }, []);
+
     return {
+        searchRef,
         searchParams,
         handleFilter,
+        handleSearch,
+        resetFilter,
     };
 };
