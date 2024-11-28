@@ -4,13 +4,15 @@ import { colors } from "@/entities/color/config/color";
 
 import { SelectItem, Selector } from "@/shared/ui/select";
 
-export interface ColorSelectorProps {
+import * as SelectPrimitive from "@radix-ui/react-select";
+
+export interface ColorSelectorProps extends SelectPrimitive.SelectProps {
     className?: string;
     placeholder?: string;
     onColorChange: (color: string) => void;
 }
 
-export const ColorSelector = ({ className, placeholder, onColorChange }: ColorSelectorProps) => {
+export const ColorSelector = ({ className, placeholder, onColorChange, ...props }: ColorSelectorProps) => {
     const [color, setColor] = useState<string>("");
 
     useEffect(() => {
@@ -18,7 +20,7 @@ export const ColorSelector = ({ className, placeholder, onColorChange }: ColorSe
     }, [color]);
 
     return (
-        <Selector className={className} onValueChange={(value) => setColor(value)} placeholder={placeholder}>
+        <Selector className={className} onValueChange={(value) => setColor(value)} placeholder={placeholder} {...props}>
             {colors.map((color, index) => {
                 return (
                     <SelectItem key={index} value={color.colorValue}>
