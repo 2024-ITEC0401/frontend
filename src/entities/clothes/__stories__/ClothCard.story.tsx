@@ -1,6 +1,5 @@
 import { ClothCard } from "@/entities/clothes/ui/ClothCard";
 
-import sampleCodiImg from "@/__mocks__/sample-codi.jpg";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof ClothCard> = {
@@ -13,8 +12,12 @@ type Story = StoryObj<typeof ClothCard>;
 
 export const Default: Story = {
     args: {
-        imgSrc: sampleCodiImg,
+        imgSrc: "https://via.placeholder.com/150",
         title: "흰색 롱 슬리브",
-        count: 2,
+        description: "흰색 롱 슬리브입니다.",
+
+        onDelete: () => console.log("onDelete"),
+        onEdit: () => console.log("onEdit"),
+        onFindMatchingOutfit: () => console.log("onFindMatchingOutfit"),
     },
 };
