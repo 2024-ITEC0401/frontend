@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useCheckEmailValidation } from "@/features/auth/apis/checkEmailValidation";
+import { useCheckEmailValidation } from "@/features/auth/hooks/useCheckEmailValidation";
 import { useSignUp } from "@/features/auth/hooks/useSignUp";
 
 import { Button } from "@/shared/ui/button";
@@ -10,7 +10,7 @@ import { Label } from "@/shared/ui/label";
 
 export default function SignUpPage() {
     const navigate = useNavigate();
-    const { name, setName, nickname, setNickname, email, setEmail, password, setPassword, handleSignUp } = useSignUp();
+    const { name, setName, email, setEmail, nickname, setNickname, password, setPassword, handleSignUp } = useSignUp();
 
     const { data: isEmailValid, refetch: checkEmailValidation } = useCheckEmailValidation(email, false);
 
@@ -97,7 +97,7 @@ export default function SignUpPage() {
 
                 <Button
                     className="w-full"
-                    onClick={handleSignUp}
+                    onClick={() => handleSignUp()}
                     disabled={!isEmailValid || !emailChecked || !name || !nickname || !password}
                 >
                     회원가입
