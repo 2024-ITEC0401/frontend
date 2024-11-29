@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 
-import { Filter, Plus } from "lucide-react";
-
 import { FilterCloset } from "@/features/home/ui/FilterCloset";
 
 import { AddClothModal } from "@/entities/clothes/ui/AddClothModal";
 import { ClothCard } from "@/entities/clothes/ui/ClothCard";
-
-import { Button } from "@/shared/ui/button";
 
 export default function HomePage() {
     const [filter, setFilter] = useState<Record<string, string>>({});

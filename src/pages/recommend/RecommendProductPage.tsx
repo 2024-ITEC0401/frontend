@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { FilterCloset } from "@/features/home/ui/FilterCloset";
 
@@ -6,6 +6,10 @@ import { RecommendedProductCard } from "@/entities/clothes/ui/RecommendedProduct
 
 export default function RecommendProductPage() {
     const [filter, setFilter] = useState<Record<string, string>>({});
+
+    useEffect(() => {
+        console.table(filter);
+    }, [filter]);
 
     return (
         <div>
