@@ -7,6 +7,7 @@ import SignInPage from "@/pages/auth/SignInPage";
 import HomePage from "@/pages/home/HomePage";
 import ProfilePage from "@/pages/profile/ProfilePage";
 import RecommendCodiPage from "@/pages/recommend/RecommendCodiPage";
+import RecommendProductPage from "@/pages/recommend/RecommendProductPage";
 
 export const Router = () => {
     return (
@@ -14,6 +15,7 @@ export const Router = () => {
             <Route path="/" element={<RootLayout />}>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/recommend/codi" element={<RecommendCodiPage />} />
+                <Route path="/recommend/product" element={<RecommendProductPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
             </Route>
 
