@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 
+import { Filter, Plus } from "lucide-react";
+
 import { FilterCloset } from "@/features/home/ui/FilterCloset";
 
+import { AddClothModal } from "@/entities/clothes/ui/AddClothModal";
 import { ClothCard } from "@/entities/clothes/ui/ClothCard";
+
+import { Button } from "@/shared/ui/button";
 
 export default function HomePage() {
     const [filter, setFilter] = useState<Record<string, string>>({});
@@ -13,11 +18,17 @@ export default function HomePage() {
 
     return (
         <div>
-            <div className="sticky top-0 py-1 bg-white">
-                <h1 className="mt-2 text-xl font-bold">내 옷장</h1>
-                <p className="mb-2 text-sm">총 30개</p>
+            <div className="sticky top-0 flex items-center justify-between py-1 bg-white">
+                <div>
+                    <h1 className="mt-2 text-xl font-bold">내 옷장</h1>
+                    <p className="mb-2 text-sm">총 30개</p>
+                </div>
 
-                <FilterCloset onFilterChange={(filter) => setFilter(filter)} />
+                <div className="flex gap-1">
+                    <FilterCloset onFilterChange={(filter) => setFilter(filter)} />
+
+                    <AddClothModal />
+                </div>
             </div>
 
             <div className="flex flex-wrap justify-center gap-1.5 my-2">
