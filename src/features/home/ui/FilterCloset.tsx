@@ -104,10 +104,6 @@ export const FilterCloset = ({ onFilterChange }: FilterClosetProps) => {
                             핕터 초기화
                         </Button>
                     </li>
-
-                    <li className="flex flex-col justify-end w-full">
-                        <AddClothModal />
-                    </li>
                 </ul>
             </SheetContent>
         </Sheet>
