@@ -21,7 +21,7 @@ export const useRecommendationFilter = () => {
 
             console.log(newSearchParams.toString());
         },
-        [searchParams],
+        [searchParams, setSearchParams],
     );
 
     const handleSearch = useCallback(() => {
@@ -32,11 +32,11 @@ export const useRecommendationFilter = () => {
         else newSearchParams.set("search", key);
 
         setSearchParams(newSearchParams);
-    }, [searchParams]);
+    }, [searchParams, setSearchParams]);
 
     const resetFilter = useCallback(() => {
         setSearchParams("");
-    }, []);
+    }, [setSearchParams]);
 
     return {
         searchRef,

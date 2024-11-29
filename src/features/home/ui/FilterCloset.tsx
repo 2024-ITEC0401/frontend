@@ -4,7 +4,6 @@ import { Filter, RefreshCcw } from "lucide-react";
 
 import { useFilterCloset } from "@/features/home/hooks/useFilterCloset";
 
-import { AddClothModal } from "@/entities/clothes/ui/AddClothModal";
 import { CategorySelector } from "@/entities/clothes/ui/CategorySelector";
 import { ColorSelector } from "@/entities/clothes/ui/ColorSelector";
 import { SeasonSelector } from "@/entities/clothes/ui/SeasonSelector";
