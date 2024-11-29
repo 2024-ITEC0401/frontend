@@ -1,5 +1,5 @@
-import { ColorSelector } from "@/entities/color/ui/ColorSelector";
-import { StyleSelector } from "@/entities/style/ui/StyleSelector";
+import { ColorSelector } from "@/entities/clothes/ui/ColorSelector";
+import { StyleSelector } from "@/entities/clothes/ui/StyleSelector";
 
 import { MODE, useMode } from "@/shared/hooks/useMode";
 import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar";
