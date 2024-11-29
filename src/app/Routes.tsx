@@ -5,6 +5,7 @@ import { ProtectedRoute } from "@/app/layouts/ProtectedRoute";
 import { RootLayout } from "@/app/layouts/RootLayout";
 
 import SignInPage from "@/pages/auth/SignInPage";
+import SignUpPage from "@/pages/auth/SignUpPage";
 import HomePage from "@/pages/home/HomePage";
 import ProfilePage from "@/pages/profile/ProfilePage";
 import RecommendCodiPage from "@/pages/recommend/RecommendCodiPage";
@@ -29,6 +30,7 @@ export const Router = () => {
 
             <Route path="/auth" element={<AuthLayout />}>
                 <Route path="signin" element={<SignInPage />} />
+                <Route path="signup" element={<SignUpPage />} />
             </Route>
         </Routes>
     );
