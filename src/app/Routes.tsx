@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import { AuthLayout } from "@/app/layouts/AuthLayout";
+import { ProtectedRoute } from "@/app/layouts/ProtectedRoute";
 import { RootLayout } from "@/app/layouts/RootLayout";
 
 import SignInPage from "@/pages/auth/SignInPage";
@@ -12,7 +13,14 @@ import RecommendProductPage from "@/pages/recommend/RecommendProductPage";
 export const Router = () => {
     return (
         <Routes>
-            <Route path="/" element={<RootLayout />}>
+            <Route
+                path="/"
+                element={
+                    <ProtectedRoute>
+                        <RootLayout />
+                    </ProtectedRoute>
+                }
+            >
                 <Route path="/" element={<HomePage />} />
                 <Route path="/recommend/codi" element={<RecommendCodiPage />} />
                 <Route path="/recommend/product" element={<RecommendProductPage />} />
