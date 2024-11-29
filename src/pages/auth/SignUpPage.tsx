@@ -44,14 +44,17 @@ export default function SignUpPage() {
 
                 <div className="flex flex-col gap-2">
                     <Label htmlFor="email">이메일 주소</Label>
-                    <Input
-                        id="email"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="이메일을 입력해주세요"
-                        required
-                    />
+                    <div className="flex gap-1">
+                        <Input
+                            id="email"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="이메일을 입력해주세요"
+                            required
+                        />
+                        <Button variant="outline">중복 확인</Button>
+                    </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
