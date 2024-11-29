@@ -1,4 +1,4 @@
-import { ColorSelector } from "@/entities/color/ui/ColorSelector";
+import { ColorSelector } from "@/entities/clothes/ui/ColorSelector";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
