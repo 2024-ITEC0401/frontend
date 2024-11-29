@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 
 import { fetchInstance } from "@/app/config/axios";
@@ -25,6 +26,7 @@ const signUp = async (data: SignUpRequest): Promise<SignUpResponse> => {
 
 export const useSignUp = () => {
     const navigate = useNavigate();
+
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [nickname, setNickname] = useState<string>("");
