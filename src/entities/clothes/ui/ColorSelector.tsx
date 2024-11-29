@@ -17,7 +17,7 @@ export const ColorSelector = ({ className, placeholder, onColorChange, ...props 
 
     useEffect(() => {
         onColorChange(color);
-    }, [color]);
+    }, [color, onColorChange]);
 
     return (
         <Selector className={className} onValueChange={(value) => setColor(value)} placeholder={placeholder} {...props}>
