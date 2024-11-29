@@ -22,8 +22,8 @@ export const ImageUploader = ({ className, onChange }: FileUploadProps) => {
     return (
         <div
             className={cn(
-                className,
                 "flex w-[500px] h-[400px] border-2 rounded-md hover:cursor-pointer justify-center items-center border-dashed",
+                className,
             )}
             onClick={handleImageUpload}
         >
