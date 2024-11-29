@@ -20,7 +20,7 @@ const signUp = async (data: SignUpRequest): Promise<SignUpResponse> => {
     return response.data;
 };
 
-export const useSignUp = () => {
+export const useSignUpMutation = () => {
     return useMutation({
         mutationFn: signUp,
         onSuccess: (data) => {
