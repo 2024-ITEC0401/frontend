@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig } from "axios";
 
-import { BASE_URL } from "@/app/constants/URL";
+import { BASE_URL } from "@/app/constants/URI";
 
 import { useAuthStore } from "@/entities/tokens/stores/authStore";
 
