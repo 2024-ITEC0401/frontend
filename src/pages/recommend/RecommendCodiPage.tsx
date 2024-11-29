@@ -1,5 +1,4 @@
-import { recommendationFilter } from "@/features/recommend/config/filter";
-import { RecommendationFilter } from "@/features/recommend/ui/Filter";
+import { FilterRecommendation } from "@/features/home/ui/FilterRecommendation";
 
 import { RecommendedCodiCard } from "@/entities/clothes/ui/RecommendedCodiCard";
 
@@ -8,11 +7,18 @@ import sampleImage from "@/__mocks__/BlackShirt.png";
 export default function RecommendCodiPage() {
     return (
         <div>
-            <h1 className="my-4 text-xl font-bold">코디 추천</h1>
+            <div className="sticky top-0 flex items-center justify-between py-1 bg-white border-b-[1px]">
+                <div>
+                    <h1 className="mt-2 text-xl font-bold">코디 추천</h1>
+                    <p className="mb-2 text-sm">총 30개</p>
+                </div>
+                <div className="flex gap-1">
+                    <FilterRecommendation />
+                </div>
+            </div>
 
-            <section className="flex flex-col gap-2 lg:flex-row">
-                <RecommendationFilter filters={recommendationFilter} className="lg:w-[30%] h-fit sticky" />
-                <div className="flex flex-col gap-2 lg:w-auto">
+            <section className="flex flex-col gap-2 mt-2 lg:flex-row">
+                <div className="flex flex-col gap-2 lg:w-full">
                     {Array.from({ length: 10 }).map((_, key) => {
                         return (
                             <RecommendedCodiCard
