@@ -16,13 +16,13 @@ export const NavTop = () => {
     };
 
     return (
-        <nav className="sticky top-0 z-[99] w-full bg-white shadow-lg shadow-gray-300 h-16">
+        <nav className="sticky top-0 z-[99] w-full bg-white shadow-lg  h-16">
             <div className="flex max-w-[1200px] h-full mx-auto px-8 items-center">
                 <NavLink to="/" className="flex items-center h-full">
-                    <img src={Look4Me} alt="LOOK4ME Logo" className="h-7 w-auto object-contain" />
+                    <img src={Look4Me} alt="LOOK4ME Logo" className="object-contain w-auto h-7" />
                 </NavLink>
 
-                <ul className="hidden gap-7 h-full md:flex items-center ml-auto">
+                <ul className="items-center hidden h-full ml-auto gap-7 md:flex">
                     {navTop.map((nav, key) => (
                         <li key={key} className="flex items-center h-nav">
                             <NavLink
@@ -43,7 +43,7 @@ export const NavTop = () => {
                     <NavAside className="block md:hidden" />
                     <button
                         onClick={handleLogout}
-                        className="text-sm font-semibold text-red-600 hover:text-red-700 transition-colors duration-200"
+                        className="text-sm font-semibold text-red-600 transition-colors duration-200 hover:text-red-700"
                     >
                         로그아웃
                     </button>
