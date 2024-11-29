@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { useCheckEmailValidation } from "@/features/auth/hooks/useCheckEmailValidation";
 import { useSignUp } from "@/features/auth/hooks/useSignUp";
 
 import { Button } from "@/shared/ui/button";
@@ -8,7 +10,24 @@ import { Label } from "@/shared/ui/label";
 
 export default function SignUpPage() {
     const navigate = useNavigate();
-    const { name, setName, nickname, setNickname, email, setEmail, password, setPassword, handleSignUp } = useSignUp();
+    const { name, setName, email, setEmail, nickname, setNickname, password, setPassword, handleSignUp } = useSignUp();
+
+    const { data: isEmailValid, refetch: checkEmailValidation } = useCheckEmailValidation(email, false);
+
+    const [emailChecked, setEmailChecked] = useState(false);
+
+    const handleEmailCheck = async () => {
+        if (!email) {
+            alert("이메일을 입력해주세요.");
+            return;
+        }
+        try {
+            await checkEmailValidation();
+            setEmailChecked(true);
+        } catch (error) {
+            console.error("이메일 중복 확인 중에 에러가 발생했습니다.", error);
+        }
+    };
 
     return (
         <div>
@@ -53,8 +72,15 @@ export default function SignUpPage() {
                             placeholder="이메일을 입력해주세요"
                             required
                         />
-                        <Button variant="outline">중복 확인</Button>
+                        <Button variant="outline" onClick={handleEmailCheck}>
+                            중복 확인
+                        </Button>
                     </div>
+                    {emailChecked && isEmailValid !== undefined && (
+                        <p className={`text-sm ${isEmailValid ? "text-green-600" : "text-red-600"}`}>
+                            {isEmailValid ? "사용 가능한 이메일입니다." : "이미 사용 중인 이메일입니다."}
+                        </p>
+                    )}
                 </div>
 
                 <div className="flex flex-col gap-2">
@@ -69,7 +95,11 @@ export default function SignUpPage() {
                     />
                 </div>
 
-                <Button className="w-full" onClick={handleSignUp}>
+                <Button
+                    className="w-full"
+                    onClick={() => handleSignUp()}
+                    disabled={!isEmailValid || !emailChecked || !name || !nickname || !password}
+                >
                     회원가입
                 </Button>
 
