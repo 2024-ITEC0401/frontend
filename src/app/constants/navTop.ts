@@ -1,6 +1,6 @@
 export const navTop = [
     {
-        to: "/mypage/closet",
+        to: "/",
         label: "내 옷장 관리",
     },
     {
@@ -12,7 +12,7 @@ export const navTop = [
         label: "코디 추천",
     },
     {
-        to: "/mypage",
+        to: "/profile",
         label: "마이페이지",
     },
 ];
