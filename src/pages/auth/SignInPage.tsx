@@ -34,6 +34,12 @@ export default function SignInPage() {
         );
     };
 
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === "Enter") {
+            handleLogin();
+        }
+    };
+
     return (
         <div>
             <div className="mb-10 text-center">
@@ -61,6 +67,7 @@ export default function SignInPage() {
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        onKeyDown={handleKeyDown}
                         placeholder="비밀번호를 입력해주세요"
                         required
                     />
