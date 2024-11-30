@@ -30,6 +30,7 @@ export const parseClothesAnalysisResponse = (response: OutfitInfoResponse) => {
     const parsedTextile = textiles.find((textile) => textile.textileLabel === response.textile)?.textileValue;
 
     return {
+        imageUri: response.imageUri,
         name: parsedName,
         description: parsedDescription,
         category: parsedCategory,
