@@ -24,7 +24,7 @@ export const AddClothModal = () => {
     const previousFileRef = useRef<File | null>(null);
     const [isUploading, setIsUploading] = useState(false);
 
-    const { state, dispatch, handleSubmit, handleDelete } = useAddCloth();
+    const { state, dispatch, handleSubmit, handleReset } = useAddCloth();
     const { mutate: uploadImage } = useFetchOutfitInfo();
 
     const handleImageUpload = (img: File) => {
@@ -38,6 +38,7 @@ export const AddClothModal = () => {
                 console.log("이미지 업로드 성공:", data);
                 setIsUploading(false);
 
+                dispatch({ type: "SET_IMAGE_URI", payload: data.imageUri });
                 dispatch({ type: "SET_NAME", payload: data.name });
                 dispatch({ type: "SET_DESCRIPTION", payload: data.description });
                 dispatch({ type: "SET_CATEGORY", payload: data.category as string });
@@ -175,10 +176,10 @@ export const AddClothModal = () => {
                 </div>
                 <DialogFooter>
                     <Button className="w-full" onClick={handleSubmit}>
-                        저장
+                        내 옷장 추가
                     </Button>
-                    <Button className="w-full" variant="destructive" onClick={handleDelete}>
-                        삭제
+                    <Button className="w-full" variant="destructive" onClick={handleReset}>
+                        초기화
                     </Button>
                 </DialogFooter>
             </DialogContent>
