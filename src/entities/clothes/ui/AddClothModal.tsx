@@ -37,6 +37,17 @@ export const AddClothModal = () => {
             onSuccess: (data) => {
                 console.log("이미지 업로드 성공:", data);
                 setIsUploading(false);
+
+                dispatch({ type: "SET_NAME", payload: data.name });
+                dispatch({ type: "SET_DESCRIPTION", payload: data.description });
+                dispatch({ type: "SET_CATEGORY", payload: data.mainCategory });
+                dispatch({ type: "SET_SUBCATEGORY", payload: data.subCategory });
+                dispatch({ type: "SET_COLOR", payload: data.baseColor });
+                dispatch({ type: "SET_POINTCOLOR", payload: data.pointColor });
+                dispatch({ type: "SET_SEASON", payload: data.season });
+                dispatch({ type: "SET_STYLE", payload: data.style });
+                dispatch({ type: "SET_TEXTILE", payload: data.textile });
+                dispatch({ type: "SET_PATTERN", payload: data.pattern });
             },
             onError: (error) => {
                 console.error("이미지 업로드 실패:", error);
