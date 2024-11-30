@@ -20,7 +20,7 @@ export const ColorSelector = ({
     onColorChange,
     ...props
 }: ColorSelectorProps) => {
-    const [color, setColor] = useState<string>(defaultValue);
+    const [color, setColor] = useState<string>(defaultValue || "");
 
     useEffect(() => {
         onColorChange(color);
