@@ -15,7 +15,11 @@ export default function ProfilePage() {
     const { isViewMode, mode, switchToEditMode, switchToViewMode } = useMode(MODE.VIEW);
     const { nicknameRef, heightRef, weightRef, setTone, setAge, setColor, setStyle, handleSaveClick } =
         useEditProfile();
-    const { data: profile } = useViewProfile();
+    const { data: profile, isFetching } = useViewProfile();
+
+    if (isFetching) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div>
