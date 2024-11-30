@@ -1,37 +1,17 @@
-import { useEffect, useState } from "react";
-
 import { patterns } from "@/entities/clothes/config/patterns";
 
 import { SelectItem, Selector } from "@/shared/ui/select";
 
-export interface PatternSelectorProps {
+import * as SelectPrimitive from "@radix-ui/react-select";
+
+export interface PatternSelectorProps extends SelectPrimitive.SelectProps {
     className?: string;
-    defaultValue?: string;
     placeholder?: string;
-    onPatternChange?: (pattern: string) => void;
 }
 
-export const PatternSelector = ({
-    className,
-    defaultValue,
-    placeholder,
-    onPatternChange,
-    ...props
-}: PatternSelectorProps) => {
-    const [pattern, setPattern] = useState<string>(defaultValue as string);
-
-    useEffect(() => {
-        onPatternChange && onPatternChange(pattern);
-    }, [onPatternChange, pattern]);
-
+export const PatternSelector = ({ className, placeholder, ...props }: PatternSelectorProps) => {
     return (
-        <Selector
-            className={className}
-            onValueChange={(value) => setPattern(value)}
-            placeholder={placeholder}
-            value={pattern}
-            {...props}
-        >
+        <Selector className={className} placeholder={placeholder} {...props}>
             {patterns.map((pattern, index) => {
                 return (
                     <SelectItem key={index} value={pattern.patternValue}>
