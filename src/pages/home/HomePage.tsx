@@ -32,7 +32,6 @@ export default function HomePage() {
 
                 <div className="flex gap-1">
                     <FilterCloset onFilterChange={(filter) => setFilter(filter)} />
-
                     <AddClothModal />
                 </div>
             </div>
