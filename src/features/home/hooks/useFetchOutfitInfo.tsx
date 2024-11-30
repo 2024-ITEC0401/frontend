@@ -6,10 +6,8 @@ import { useMutation } from "@tanstack/react-query";
 
 export interface OutfitInfoResponse {
     baseColor: string;
-    category: {
-        mainCategory: string;
-        subCategory: string;
-    };
+    mainCategory: string;
+    subCategory: string;
     description: string;
     imageUri: string;
     name: string;

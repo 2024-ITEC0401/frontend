@@ -11,13 +11,11 @@ export const parseClothesAnalysisResponse = (response: OutfitInfoResponse) => {
     const parsedName = response.name;
     const parsedDescription = response.description;
 
-    const parsedCategory = category.find(
-        (category) => category.categoryLabel === response.category.mainCategory,
-    )?.categoryValue;
+    const parsedCategory = category.find((category) => category.categoryLabel === response.mainCategory)?.categoryValue;
 
     const parsedSubCategory = category
-        .find((category) => category.categoryLabel === response.category.mainCategory)
-        ?.subCategory.find((subcategory) => subcategory.categoryLabel === response.category.subCategory)?.categoryValue;
+        .find((category) => category.categoryLabel === response.mainCategory)
+        ?.subCategory.find((subcategory) => subcategory.categoryLabel === response.subCategory)?.categoryValue;
 
     const parsedColor = colors.find((color) => color.colorLabel === response.baseColor)?.colorValue;
 
