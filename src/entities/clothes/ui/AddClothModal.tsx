@@ -1,4 +1,8 @@
+import { useRef, useState } from "react";
+
 import { Plus } from "lucide-react";
+
+import { useFetchOutfitInfo } from "@/features/home/hooks/useFetchOutfitInfo";
 
 import { useAddCloth } from "@/entities/clothes/hooks/useAddCloth";
 import { CategorySelector } from "@/entities/clothes/ui/CategorySelector";
@@ -14,9 +18,32 @@ import { Button } from "@/shared/ui/button";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/shared/ui/dialog";
 import { Input } from "@/shared/ui/input";
 import { Label } from "@/shared/ui/label";
+import { SpinnerOverlay } from "@/shared/ui/spinnerOverlay";
 
 export const AddClothModal = () => {
+    const previousFileRef = useRef<File | null>(null);
+    const [isUploading, setIsUploading] = useState(false);
+
     const { state, dispatch, handleSubmit, handleDelete } = useAddCloth();
+    const { mutate: uploadImage } = useFetchOutfitInfo();
+
+    const handleImageUpload = (img: File) => {
+        if (!img || img === previousFileRef.current) return;
+
+        previousFileRef.current = img;
+        setIsUploading(true);
+
+        uploadImage(img, {
+            onSuccess: (data) => {
+                console.log("이미지 업로드 성공:", data);
+                setIsUploading(false);
+            },
+            onError: (error) => {
+                console.error("이미지 업로드 실패:", error);
+                setIsUploading(false);
+            },
+        });
+    };
 
     return (
         <Dialog>
@@ -31,8 +58,16 @@ export const AddClothModal = () => {
                 </DialogHeader>
 
                 <div className="flex gap-2">
-                    <ImageUploader className="w-[60%]" />
+                    <ImageUploader
+                        className="w-[60%]"
+                        onChange={(img) => {
+                            if (img) {
+                                handleImageUpload(img);
+                            }
+                        }}
+                    />
                     <div className="w-[40%]">
+                        {isUploading && <SpinnerOverlay message="이미지 분석 중입니다..." />}
                         <div>
                             <Label>옷 이름</Label>
                             <Input
