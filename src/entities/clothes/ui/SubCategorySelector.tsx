@@ -1,30 +1,17 @@
-import { useEffect, useState } from "react";
-
 import { category } from "@/entities/clothes/config/category";
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select";
 
-export interface SubCategorySelectorProps {
-    placeholder?: string;
-    defaultValue?: string;
+import * as SelectPrimitive from "@radix-ui/react-select";
+
+export interface SubCategorySelectorProps extends SelectPrimitive.SelectProps {
     parentCategory: string;
-    onChange?: (value: string) => void;
+    placeholder?: string;
 }
 
-export const SubCategorySelector = ({
-    defaultValue,
-    placeholder,
-    parentCategory,
-    onChange,
-}: SubCategorySelectorProps) => {
-    const [selectedSubCategory, setSelectedSubCategory] = useState<string>(defaultValue as string);
-
-    useEffect(() => {
-        onChange && onChange(selectedSubCategory || "");
-    }, [onChange, selectedSubCategory]);
-
+export const SubCategorySelector = ({ placeholder, parentCategory, ...props }: SubCategorySelectorProps) => {
     return (
-        <Select onValueChange={(value) => setSelectedSubCategory(value)} value={selectedSubCategory}>
+        <Select {...props}>
             <SelectTrigger className="w-full">
                 <SelectValue placeholder={placeholder || "하위 카테고리"} />
             </SelectTrigger>

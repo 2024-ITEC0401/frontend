@@ -1,37 +1,17 @@
-import { useEffect, useState } from "react";
-
 import { textiles } from "@/entities/clothes/config/textile";
 
 import { SelectItem, Selector } from "@/shared/ui/select";
 
-export interface TextileSelectorProps {
+import * as SelectPrimitive from "@radix-ui/react-select";
+
+export interface TextileSelectorProps extends SelectPrimitive.SelectProps {
     className?: string;
-    defaultValue?: string;
     placeholder?: string;
-    onTextileChange?: (textile: string) => void;
 }
 
-export const TextileSelector = ({
-    className,
-    defaultValue,
-    placeholder,
-    onTextileChange,
-    ...props
-}: TextileSelectorProps) => {
-    const [textile, setTextile] = useState<string>(defaultValue as string);
-
-    useEffect(() => {
-        onTextileChange && onTextileChange(textile);
-    }, [onTextileChange, textile]);
-
+export const TextileSelector = ({ className, placeholder, ...props }: TextileSelectorProps) => {
     return (
-        <Selector
-            className={className}
-            onValueChange={(value) => setTextile(value)}
-            placeholder={placeholder}
-            value={textile}
-            {...props}
-        >
+        <Selector className={className} placeholder={placeholder} {...props}>
             {textiles.map((textile, index) => {
                 return (
                     <SelectItem key={index} value={textile.textileValue}>

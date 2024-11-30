@@ -1,24 +1,16 @@
-import { useEffect, useState } from "react";
-
 import { category } from "@/entities/clothes/config/category";
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select";
 
-export interface CategorySelectorProps {
+import * as SelectPrimitive from "@radix-ui/react-select";
+
+export interface CategorySelectorProps extends SelectPrimitive.SelectProps {
     placeholder?: string;
-    defaultValue?: string;
-    onChange?: (value: string) => void;
 }
 
-export const CategorySelector = ({ defaultValue, placeholder, onChange }: CategorySelectorProps) => {
-    const [selectedCategory, setSelectedCategory] = useState<string>(defaultValue as string);
-
-    useEffect(() => {
-        onChange && onChange(selectedCategory || "");
-    }, [onChange, selectedCategory]);
-
+export const CategorySelector = ({ placeholder, ...props }: CategorySelectorProps) => {
     return (
-        <Select onValueChange={(value) => setSelectedCategory(value)} value={selectedCategory}>
+        <Select {...props}>
             <SelectTrigger className="w-full">
                 <SelectValue placeholder={placeholder || "상위 카테고리"} />
             </SelectTrigger>
