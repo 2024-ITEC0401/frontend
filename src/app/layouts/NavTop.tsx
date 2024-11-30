@@ -37,16 +37,18 @@ export const NavTop = () => {
                             </NavLink>
                         </li>
                     ))}
+                    <li className="flex items-center h-nav">
+                        <button
+                            onClick={handleLogout}
+                            className="text-sm font-semibold text-red-600 hover:text-red-700 transition-colors duration-200"
+                        >
+                            로그아웃
+                        </button>
+                    </li>
                 </ul>
 
                 <div className="flex items-center gap-4 ml-16">
                     <NavAside className="block md:hidden" />
-                    <button
-                        onClick={handleLogout}
-                        className="text-sm font-semibold text-red-600 hover:text-red-700 transition-colors duration-200"
-                    >
-                        로그아웃
-                    </button>
                 </div>
             </div>
         </nav>
