@@ -6,19 +6,25 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 export interface SubCategorySelectorProps {
     placeholder?: string;
+    defaultValue?: string;
     parentCategory: string;
     onChange?: (value: string) => void;
 }
 
-export const SubCategorySelector = ({ placeholder, parentCategory, onChange }: SubCategorySelectorProps) => {
-    const [selectedSubCategory, setSelectedSubCategory] = useState<string | null>(null);
+export const SubCategorySelector = ({
+    defaultValue,
+    placeholder,
+    parentCategory,
+    onChange,
+}: SubCategorySelectorProps) => {
+    const [selectedSubCategory, setSelectedSubCategory] = useState<string>(defaultValue as string);
 
     useEffect(() => {
         onChange && onChange(selectedSubCategory || "");
     }, [onChange, selectedSubCategory]);
 
     return (
-        <Select onValueChange={(value) => setSelectedSubCategory(value)}>
+        <Select onValueChange={(value) => setSelectedSubCategory(value)} value={selectedSubCategory}>
             <SelectTrigger className="w-full">
                 <SelectValue placeholder={placeholder || "하위 카테고리"} />
             </SelectTrigger>
