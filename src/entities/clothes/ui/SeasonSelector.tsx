@@ -6,18 +6,19 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 export interface SeasonSelectorProps {
     placeholder?: string;
+    defaultValue?: string;
     onChange?: (value: string) => void;
 }
 
-export const SeasonSelector = ({ placeholder, onChange }: SeasonSelectorProps) => {
-    const [season, setSeason] = useState<string>("");
+export const SeasonSelector = ({ defaultValue, placeholder, onChange }: SeasonSelectorProps) => {
+    const [season, setSeason] = useState<string>(defaultValue as string);
 
     useEffect(() => {
         onChange && onChange(season);
     }, [onChange, season]);
 
     return (
-        <Select onValueChange={(value) => setSeason(value)}>
+        <Select onValueChange={(value) => setSeason(value)} value={season}>
             <SelectTrigger className="w-full">
                 <SelectValue placeholder={placeholder || "계절"} />
             </SelectTrigger>
