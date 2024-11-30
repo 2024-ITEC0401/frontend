@@ -1,3 +1,6 @@
+import { useEditProfile } from "@/features/profile/hooks/useEditProfile";
+import { useViewProfile } from "@/features/profile/hooks/useViewProfile";
+
 import { ColorSelector } from "@/entities/clothes/ui/ColorSelector";
 import { StyleSelector } from "@/entities/clothes/ui/StyleSelector";
 
@@ -10,6 +13,9 @@ import { SelectItem, Selector } from "@/shared/ui/select";
 
 export default function ProfilePage() {
     const { isViewMode, mode, switchToEditMode, switchToViewMode } = useMode(MODE.VIEW);
+    const { nicknameRef, heightRef, weightRef, setTone, setAge, setColor, setStyle, handleSaveClick } =
+        useEditProfile();
+    const { data: profile } = useViewProfile();
 
     return (
         <div>
@@ -23,27 +29,51 @@ export default function ProfilePage() {
             <section className="grid grid-cols-1 gap-2 md:grid-cols-2">
                 <div>
                     <Label>이메일</Label>
-                    <Input type="text" className="w-full" disabled={true} value="test@gmail.com"></Input>
+                    <Input type="text" className="w-full" disabled={true} defaultValue={profile?.email}></Input>
                 </div>
 
                 <div>
                     <Label>닉네임</Label>
-                    <Input type="text" className="w-full" disabled={isViewMode}></Input>
+                    <Input
+                        type="text"
+                        className="w-full"
+                        disabled={isViewMode}
+                        defaultValue={profile?.nickName}
+                        ref={nicknameRef}
+                    ></Input>
                 </div>
 
                 <div>
                     <Label>키</Label>
-                    <Input type="text" className="w-full" disabled={isViewMode}></Input>
+                    <Input
+                        type="text"
+                        className="w-full"
+                        disabled={isViewMode}
+                        defaultValue={profile?.height}
+                        ref={heightRef}
+                    ></Input>
                 </div>
 
                 <div>
                     <Label>몸무게</Label>
-                    <Input type="text" className="w-full" disabled={isViewMode}></Input>
+                    <Input
+                        type="text"
+                        className="w-full"
+                        disabled={isViewMode}
+                        defaultValue={profile?.weight}
+                        ref={weightRef}
+                    ></Input>
                 </div>
 
                 <div>
                     <Label>피부톤</Label>
-                    <Selector className="w-full" placeholder="피부톤" disabled={isViewMode}>
+                    <Selector
+                        className="w-full"
+                        placeholder="피부톤"
+                        disabled={isViewMode}
+                        defaultValue={profile?.tone}
+                        onValueChange={(value) => setTone(value)}
+                    >
                         <SelectItem value="warm">웜톤</SelectItem>
                         <SelectItem value="cool">쿨톤</SelectItem>
                     </Selector>
@@ -51,7 +81,13 @@ export default function ProfilePage() {
 
                 <div>
                     <Label>연령대</Label>
-                    <Selector className="w-full" placeholder="연령대" disabled={isViewMode}>
+                    <Selector
+                        className="w-full"
+                        placeholder="연령대"
+                        disabled={isViewMode}
+                        defaultValue={profile?.age.toString()}
+                        onValueChange={(value) => setAge(value)}
+                    >
                         <SelectItem value="10">10대</SelectItem>
                         <SelectItem value="20">20대</SelectItem>
                         <SelectItem value="30">30대</SelectItem>
@@ -66,6 +102,8 @@ export default function ProfilePage() {
                         disabled={isViewMode}
                         placeholder="선호하는 색상을 선택해주세요"
                         onColorChange={(color) => console.log(color)}
+                        defaultValue={profile?.colorList?.[0]}
+                        onValueChange={(value) => setColor(value)}
                     />
                 </div>
 
@@ -75,6 +113,8 @@ export default function ProfilePage() {
                         disabled={isViewMode}
                         placeholder="선호하는 스타일을 선택해주세요"
                         onStyleChange={(style) => console.log(style)}
+                        defaultValue={profile?.styleList?.[0]}
+                        onValueChange={(value) => setStyle(value)}
                     />
                 </div>
             </section>
@@ -87,6 +127,18 @@ export default function ProfilePage() {
                     }}
                 >
                     정보 수정하기
+                </Button>
+                <Button
+                    onClick={() => {
+                        if (isViewMode) {
+                            handleSaveClick();
+                            switchToEditMode();
+                        } else {
+                            switchToViewMode();
+                        }
+                    }}
+                >
+                    정보 저장하기
                 </Button>
                 <Button variant="destructive">회원 탈퇴하기</Button>
             </div>
