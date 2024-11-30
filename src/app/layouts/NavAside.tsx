@@ -12,7 +12,7 @@ export interface NavAsideProps {
     className?: string;
 }
 
-export const NavAside = ({ className }: NavAsideProps) => {
+export const NavAside = ({ className = "" }: NavAsideProps) => {
     const { logout } = useAuthStore();
 
     const handleLogout = () => {
@@ -22,7 +22,7 @@ export const NavAside = ({ className }: NavAsideProps) => {
 
     return (
         <Sheet>
-            <SheetTrigger className={className}>
+            <SheetTrigger className={`absolute right-10 ${className}`}>
                 <Menu />
             </SheetTrigger>
             <SheetContent className="mt-[60px] w-[300px] flex flex-col">
