@@ -7,9 +7,7 @@ import { useAuthStore } from "@/entities/tokens/stores/authStore";
 
 import { QueryClient } from "@tanstack/react-query";
 
-const IS_MSW = import.meta.env.VITE_RUN_MSW === "true";
-
-const baseURL = IS_MSW ? "http://localhost:5173" : `${BASE_URL}`;
+const baseURL = BASE_URL;
 
 export const createInstance = (config: AxiosRequestConfig): AxiosInstance => {
     const instance = axios.create({
