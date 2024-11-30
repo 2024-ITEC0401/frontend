@@ -55,6 +55,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>카테고리</Label>
                                 <CategorySelector
+                                    placeholder="Main Category"
                                     defaultValue={state.category}
                                     onChange={(value) => dispatch({ type: "SET_CATEGORY", payload: value })}
                                 />
@@ -63,6 +64,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>하위 카테고리</Label>
                                 <SubCategorySelector
+                                    placeholder="Sub Category"
                                     parentCategory={state.category}
                                     defaultValue={state.subCategory}
                                     onChange={(value) => dispatch({ type: "SET_SUBCATEGORY", payload: value })}
@@ -72,6 +74,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>주 색상</Label>
                                 <ColorSelector
+                                    placeholder="Main Color"
                                     defaultValue={state.color}
                                     onColorChange={(color) => dispatch({ type: "SET_COLOR", payload: color })}
                                 />
@@ -80,7 +83,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>포인트 색상</Label>
                                 <ColorSelector
-                                    placeholder="포인트 색상"
+                                    placeholder="Point Color"
                                     defaultValue={state.pointColor}
                                     onColorChange={(color) => dispatch({ type: "SET_POINTCOLOR", payload: color })}
                                 />
@@ -89,6 +92,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>계절</Label>
                                 <SeasonSelector
+                                    placeholder="Season"
                                     defaultValue={state.season}
                                     onChange={(value) => dispatch({ type: "SET_SEASON", payload: value })}
                                 />
@@ -97,6 +101,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>스타일</Label>
                                 <StyleSelector
+                                    placeholder="Style"
                                     defaultValue={state.style}
                                     onStyleChange={(value) => dispatch({ type: "SET_STYLE", payload: value })}
                                 />
@@ -105,6 +110,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>재질</Label>
                                 <TextileSelector
+                                    placeholder="Textile"
                                     defaultValue={state.textile}
                                     onTextileChange={(value) => dispatch({ type: "SET_TEXTILE", payload: value })}
                                 />
@@ -113,6 +119,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>패턴</Label>
                                 <PatternSelector
+                                    placeholder="Pattern"
                                     defaultValue={state.pattern}
                                     onPatternChange={(value) => dispatch({ type: "SET_PATTERN", payload: value })}
                                 />
