@@ -1,5 +1,7 @@
 import { useState, useCallback, useReducer } from "react";
 
+import { queryClient } from "@/app/config/axios";
+
 import { useUploadCloth } from "@/features/home/hooks/useUploadCloth";
 
 interface ClothState {
@@ -123,6 +125,9 @@ export const useAddCloth = () => {
             onSuccess: () => {
                 console.log("옷 등록 성공:", requestData);
                 alert("옷이 성공적으로 등록되었습니다!");
+
+                queryClient.invalidateQueries({ queryKey: ["allClothes"] });
+
                 dispatch({ type: "RESET" });
                 setInvalidFields([]);
             },
