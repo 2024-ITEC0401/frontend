@@ -6,6 +6,7 @@ import { useViewProfile } from "@/features/profile/hooks/useViewProfile";
 import { ColorSelector } from "@/entities/clothes/ui/ColorSelector";
 import { StyleSelector } from "@/entities/clothes/ui/StyleSelector";
 
+import catImg from "@/shared/assets/cat.jpg";
 import { MODE, useMode } from "@/shared/hooks/useMode";
 import { Avatar, AvatarFallback, AvatarImage } from "@/shared/ui/avatar";
 import { Button } from "@/shared/ui/button";
@@ -47,8 +48,8 @@ export default function ProfilePage() {
             <h1 className="my-4 text-xl font-bold">내 정보 {mode === MODE.EDIT && "수정"} </h1>
 
             <Avatar className="w-[100px] h-[100px] mx-auto my-8">
-                <AvatarImage src="" alt="@shadcn" />
-                <AvatarFallback className="text-lg">홍</AvatarFallback>
+                <AvatarImage src={catImg} alt="@shadcn" />
+                <AvatarFallback className="text-lg"></AvatarFallback>
             </Avatar>
 
             <section className="grid grid-cols-1 gap-2 md:grid-cols-2">
