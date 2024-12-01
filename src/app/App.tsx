@@ -2,7 +2,6 @@ import { BrowserRouter } from "react-router-dom";
 
 import { Router } from "@/app/Routes";
 import { queryClient } from "@/app/config/query";
-
 import "@/app/styles/tailwind.css";
 
 import { QueryClientProvider } from "@tanstack/react-query";
