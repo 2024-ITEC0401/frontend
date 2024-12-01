@@ -22,7 +22,7 @@ export const ClothCard = ({ imgSrc, title, description, onDelete, onEdit, onFind
         <ContextMenu>
             <ContextMenuTrigger className="w-fit h-fit">
                 <Card className="w-[230px] p-4">
-                    <img src={imgSrc} alt="" className="bg-black w-full h-[160px] rounded-sm object-cover" />
+                    <img src={imgSrc} alt="" className="bg-black w-full h-[200px] rounded-sm object-cover" />
                     <div className="my-1">
                         <h2 className="text-lg font-bold text-center line-clamp-1">{title}</h2>
                         <p className="text-sm text-center line-clamp-1">{description}</p>
