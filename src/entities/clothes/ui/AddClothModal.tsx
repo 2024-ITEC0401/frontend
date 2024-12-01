@@ -24,7 +24,7 @@ export const AddClothModal = () => {
     const previousFileRef = useRef<File | null>(null);
     const [isUploading, setIsUploading] = useState(false);
 
-    const { state, dispatch, handleSubmit, handleReset } = useAddCloth();
+    const { state, dispatch, handleSubmit, handleReset, invalidFields } = useAddCloth();
     const { mutate: uploadImage } = useFetchOutfitInfo();
 
     const handleImageUpload = (img: File) => {
@@ -36,7 +36,6 @@ export const AddClothModal = () => {
         uploadImage(img, {
             onSuccess: (data) => {
                 console.log("이미지 업로드 성공:", data);
-                setIsUploading(false);
 
                 dispatch({ type: "SET_IMAGE_URI", payload: data.imageUri });
                 dispatch({ type: "SET_NAME", payload: data.name });
@@ -49,6 +48,8 @@ export const AddClothModal = () => {
                 dispatch({ type: "SET_STYLE", payload: data.style as string });
                 dispatch({ type: "SET_TEXTILE", payload: data.textile as string });
                 dispatch({ type: "SET_PATTERN", payload: data.pattern as string });
+
+                setIsUploading(false);
             },
             onError: (error) => {
                 console.error("이미지 업로드 실패:", error);
@@ -56,6 +57,8 @@ export const AddClothModal = () => {
             },
         });
     };
+
+    const isFieldInvalid = (field: string) => invalidFields.includes(field);
 
     return (
         <Dialog>
@@ -71,7 +74,7 @@ export const AddClothModal = () => {
 
                 <div className="flex gap-2">
                     <ImageUploader
-                        className="w-[60%]"
+                        className={`w-[60%] ${isFieldInvalid("imageUri") ? "border-red-500" : ""}`}
                         onChange={(img) => {
                             if (img) {
                                 handleImageUpload(img);
@@ -83,7 +86,7 @@ export const AddClothModal = () => {
                         <div>
                             <Label>옷 이름</Label>
                             <Input
-                                className="w-full"
+                                className={`w-full ${isFieldInvalid("name") ? "border-red-500" : ""}`}
                                 value={state.name}
                                 onChange={(e) => dispatch({ type: "SET_NAME", payload: e.target.value })}
                             />
@@ -92,7 +95,7 @@ export const AddClothModal = () => {
                         <div>
                             <Label>옷 설명</Label>
                             <Input
-                                className="w-full"
+                                className={`w-full ${isFieldInvalid("description") ? "border-red-500" : ""}`}
                                 value={state.description}
                                 onChange={(e) => dispatch({ type: "SET_DESCRIPTION", payload: e.target.value })}
                             />
@@ -102,6 +105,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>카테고리</Label>
                                 <CategorySelector
+                                    className={isFieldInvalid("category") ? "border-red-500" : ""}
                                     placeholder="Main Category"
                                     value={state.category}
                                     onValueChange={(value) => dispatch({ type: "SET_CATEGORY", payload: value })}
@@ -111,6 +115,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>하위 카테고리</Label>
                                 <SubCategorySelector
+                                    className={isFieldInvalid("subCategory") ? "border-red-500" : ""}
                                     placeholder="Sub Category"
                                     parentCategory={state.category}
                                     value={state.subCategory}
@@ -121,7 +126,8 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>주 색상</Label>
                                 <ColorSelector
-                                    placeholder="Main Color"
+                                    className={isFieldInvalid("color") ? "border-red-500" : ""}
+                                    placeholder="Base Color"
                                     value={state.color}
                                     onValueChange={(color) => dispatch({ type: "SET_COLOR", payload: color })}
                                 />
@@ -130,6 +136,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>포인트 색상</Label>
                                 <ColorSelector
+                                    className={isFieldInvalid("pointColor") ? "border-red-500" : ""}
                                     placeholder="Point Color"
                                     value={state.pointColor}
                                     onValueChange={(color) => dispatch({ type: "SET_POINTCOLOR", payload: color })}
@@ -139,6 +146,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>계절</Label>
                                 <SeasonSelector
+                                    className={isFieldInvalid("season") ? "border-red-500" : ""}
                                     placeholder="Season"
                                     value={state.season}
                                     onValueChange={(value) => dispatch({ type: "SET_SEASON", payload: value })}
@@ -148,6 +156,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>스타일</Label>
                                 <StyleSelector
+                                    className={isFieldInvalid("style") ? "border-red-500" : ""}
                                     placeholder="Style"
                                     value={state.style}
                                     onValueChange={(value) => dispatch({ type: "SET_STYLE", payload: value })}
@@ -157,6 +166,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>재질</Label>
                                 <TextileSelector
+                                    className={isFieldInvalid("textile") ? "border-red-500" : ""}
                                     placeholder="Textile"
                                     value={state.textile}
                                     onValueChange={(value) => dispatch({ type: "SET_TEXTILE", payload: value })}
@@ -166,6 +176,7 @@ export const AddClothModal = () => {
                             <li>
                                 <Label>패턴</Label>
                                 <PatternSelector
+                                    className={isFieldInvalid("pattern") ? "border-red-500" : ""}
                                     placeholder="Pattern"
                                     value={state.pattern}
                                     onValueChange={(value) => dispatch({ type: "SET_PATTERN", payload: value })}

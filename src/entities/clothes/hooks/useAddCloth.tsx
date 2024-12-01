@@ -1,4 +1,4 @@
-import { useCallback, useReducer } from "react";
+import { useState, useCallback, useReducer } from "react";
 
 import { useUploadCloth } from "@/features/home/hooks/useUploadCloth";
 
@@ -76,12 +76,32 @@ const clothReducer = (state: ClothState, action: ClothAction): ClothState => {
 };
 
 export const useAddCloth = () => {
+    const [invalidFields, setInvalidFields] = useState<string[]>([]);
     const [state, dispatch] = useReducer(clothReducer, initialState);
     const { mutate: uploadCloth } = useUploadCloth();
 
+    const validateFields = () => {
+        const requiredFields = [
+            "imageUri",
+            "name",
+            "description",
+            "category",
+            "subCategory",
+            "color",
+            "pointColor",
+            "season",
+            "style",
+            "textile",
+            "pattern",
+        ];
+        const invalid = requiredFields.filter((field) => !state[field as keyof ClothState]);
+        setInvalidFields(invalid);
+        return invalid.length === 0;
+    };
+
     const handleSubmit = useCallback(() => {
-        if (!state.name || !state.category || !state.color) {
-            alert("필수 항목을 입력해주세요.");
+        if (!validateFields()) {
+            alert("모든 항목을 입력해주세요.");
             return;
         }
 
@@ -104,6 +124,7 @@ export const useAddCloth = () => {
                 console.log("옷 등록 성공:", requestData);
                 alert("옷이 성공적으로 등록되었습니다!");
                 dispatch({ type: "RESET" });
+                setInvalidFields([]);
             },
             onError: (error) => {
                 console.log("옷 등록 실패:", requestData);
@@ -111,10 +132,11 @@ export const useAddCloth = () => {
                 alert("옷 등록에 실패했습니다. 다시 시도해주세요.");
             },
         });
-    }, [state, uploadCloth]);
+    }, [state, uploadCloth, validateFields]);
 
     const handleReset = useCallback(() => {
         dispatch({ type: "RESET" });
+        setInvalidFields([]);
     }, []);
 
     return {
@@ -122,5 +144,6 @@ export const useAddCloth = () => {
         handleReset,
         state,
         dispatch,
+        invalidFields,
     };
 };
