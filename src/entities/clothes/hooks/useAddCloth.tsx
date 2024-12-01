@@ -80,7 +80,7 @@ export const useAddCloth = () => {
     const [state, dispatch] = useReducer(clothReducer, initialState);
     const { mutate: uploadCloth } = useUploadCloth();
 
-    const validateFields = () => {
+    const validateFields = useCallback(() => {
         const requiredFields = [
             "imageUri",
             "name",
@@ -97,7 +97,7 @@ export const useAddCloth = () => {
         const invalid = requiredFields.filter((field) => !state[field as keyof ClothState]);
         setInvalidFields(invalid);
         return invalid.length === 0;
-    };
+    }, [state]);
 
     const handleSubmit = useCallback(() => {
         if (!validateFields()) {
