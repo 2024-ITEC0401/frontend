@@ -14,7 +14,7 @@ export const Default: Story = {
     args: {
         className: "w-full max-w-[400px]",
         placeholder: "스타일을 선택해주세요",
-        onStyleChange: (style: string) => {
+        onValueChange: (style: string) => {
             console.log(style);
         },
     },
