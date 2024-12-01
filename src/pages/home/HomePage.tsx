@@ -38,7 +38,13 @@ export default function HomePage() {
 
             <div className="flex flex-wrap justify-center gap-1.5 my-2">
                 {clothes?.map((cloth, index) => (
-                    <ClothCard key={index} imgSrc={cloth.imageUri} title={cloth.name} description={cloth.description} />
+                    <ClothCard
+                        key={index}
+                        clothId={cloth.id}
+                        imgSrc={cloth.imageUri}
+                        title={cloth.name}
+                        description={cloth.description}
+                    />
                 ))}
             </div>
         </div>

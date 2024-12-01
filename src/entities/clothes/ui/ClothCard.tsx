@@ -9,6 +9,7 @@ import {
 
 export interface ClothCardProps {
     imgSrc?: string;
+    clothId: number;
     title: string;
     description: string;
 
