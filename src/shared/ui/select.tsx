@@ -134,12 +134,13 @@ SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 type SelectorProps = {
     className?: string;
     placeholder?: string;
+    deaultValue?: string;
     children?: React.ReactNode[];
 } & SelectPrimitive.SelectProps;
 
-const Selector = ({ className, placeholder, children, ...props }: SelectorProps) => {
+const Selector = ({ className, placeholder, defaultValue, children, ...props }: SelectorProps) => {
     return (
-        <Select {...props}>
+        <Select {...props} defaultValue={defaultValue}>
             <SelectTrigger className={className}>
                 <SelectValue placeholder={placeholder} />
             </SelectTrigger>

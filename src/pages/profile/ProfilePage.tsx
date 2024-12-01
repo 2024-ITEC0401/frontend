@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { useEditProfile } from "@/features/profile/hooks/useEditProfile";
 import { useViewProfile } from "@/features/profile/hooks/useViewProfile";
 
@@ -13,9 +15,28 @@ import { SelectItem, Selector } from "@/shared/ui/select";
 
 export default function ProfilePage() {
     const { isViewMode, mode, switchToEditMode, switchToViewMode } = useMode(MODE.VIEW);
-    const { nicknameRef, heightRef, weightRef, setTone, setAge, setColor, setStyle, handleSaveClick } =
-        useEditProfile();
+    const {
+        nicknameRef,
+        heightRef,
+        weightRef,
+        tone,
+        setTone,
+        age,
+        setAge,
+        color,
+        setColor,
+        style,
+        setStyle,
+        handleSaveClick,
+        initializeFields,
+    } = useEditProfile();
     const { data: profile, isFetching } = useViewProfile();
+
+    useEffect(() => {
+        if (profile) {
+            initializeFields(profile);
+        }
+    }, [profile, initializeFields]);
 
     if (isFetching) {
         return <div>Loading...</div>;
@@ -75,7 +96,9 @@ export default function ProfilePage() {
                         className="w-full"
                         placeholder="피부톤"
                         disabled={isViewMode}
-                        defaultValue={profile?.tone}
+                        // deaultValue={tone}
+                        value={tone}
+                        // deaultValue={profile?.tone}
                         onValueChange={(value) => setTone(value)}
                     >
                         <SelectItem value="warm">웜톤</SelectItem>
@@ -89,7 +112,9 @@ export default function ProfilePage() {
                         className="w-full"
                         placeholder="연령대"
                         disabled={isViewMode}
-                        defaultValue={profile?.age.toString()}
+                        // deaultValue={age}
+                        value={age}
+                        // deaultValue={profile?.age.toString()}
                         onValueChange={(value) => setAge(value)}
                     >
                         <SelectItem value="10">10대</SelectItem>
@@ -105,7 +130,10 @@ export default function ProfilePage() {
                     <ColorSelector
                         disabled={isViewMode}
                         placeholder="선호하는 색상을 선택해주세요"
-                        onValueChange={(color) => console.log(color)}
+                        // defaultValue={color}
+                        value={color}
+                        // defaultValue={profile?.colorList[0]}
+                        onValueChange={(value) => setColor(value)}
                     />
                 </div>
 
@@ -114,8 +142,10 @@ export default function ProfilePage() {
                     <StyleSelector
                         disabled={isViewMode}
                         placeholder="선호하는 스타일을 선택해주세요"
-                        onValueChange={(style) => console.log(style)}
-
+                        // defaultValue={style}
+                        value={style}
+                        // defaultValue={profile?.styleList[0]}
+                        onValueChange={(value) => setStyle(value)}
                     />
                 </div>
             </section>

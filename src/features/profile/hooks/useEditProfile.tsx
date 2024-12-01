@@ -16,6 +16,13 @@ interface EditProfileRequestBody {
     styleList: string[];
 }
 
+interface Profile {
+    tone: string;
+    age: number;
+    colorList: string[];
+    styleList: string[];
+}
+
 const editProfile = async (data: EditProfileRequestBody): Promise<void> => {
     const response = await fetchInstance.put("/api/v1/user/profile", data);
     return response.data;
@@ -61,14 +68,26 @@ export const useEditProfile = () => {
         mutate();
     }, [mutate]);
 
+    const initializeFields = (profile: Profile) => {
+        setTone(profile?.tone || "");
+        setAge(profile?.age.toString() || "");
+        setColor(profile?.colorList[0] || "");
+        setStyle(profile?.styleList[0] || "");
+    };
+
     return {
         nicknameRef,
         heightRef,
         weightRef,
+        tone,
         setTone,
+        age,
         setAge,
+        color,
         setColor,
+        style,
         setStyle,
         handleSaveClick,
+        initializeFields,
     };
 };
