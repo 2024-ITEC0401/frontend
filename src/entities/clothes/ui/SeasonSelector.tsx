@@ -1,25 +1,18 @@
-import { useEffect, useState } from "react";
-
 import { seasons } from "@/entities/clothes/config/season";
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/shared/ui/select";
 
-export interface SeasonSelectorProps {
+import * as SelectPrimitive from "@radix-ui/react-select";
+
+export interface SeasonSelectorProps extends SelectPrimitive.SelectProps {
     placeholder?: string;
-    defaultValue?: string;
-    onChange?: (value: string) => void;
+    className?: string;
 }
 
-export const SeasonSelector = ({ defaultValue, placeholder, onChange }: SeasonSelectorProps) => {
-    const [season, setSeason] = useState<string>(defaultValue as string);
-
-    useEffect(() => {
-        onChange && onChange(season);
-    }, [onChange, season]);
-
+export const SeasonSelector = ({ placeholder, className, ...props }: SeasonSelectorProps) => {
     return (
-        <Select onValueChange={(value) => setSeason(value)} value={season}>
-            <SelectTrigger className="w-full">
+        <Select {...props}>
+            <SelectTrigger className={`w-full ${className || ""}`}>
                 <SelectValue placeholder={placeholder || "계절"} />
             </SelectTrigger>
             <SelectContent>

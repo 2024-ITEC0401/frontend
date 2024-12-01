@@ -65,7 +65,7 @@ export default function ProfilePage() {
                     <ColorSelector
                         disabled={isViewMode}
                         placeholder="선호하는 색상을 선택해주세요"
-                        onColorChange={(color) => console.log(color)}
+                        onValueChange={(color) => console.log(color)}
                     />
                 </div>
 
@@ -74,7 +74,7 @@ export default function ProfilePage() {
                     <StyleSelector
                         disabled={isViewMode}
                         placeholder="선호하는 스타일을 선택해주세요"
-                        onStyleChange={(style) => console.log(style)}
+                        onValueChange={(style) => console.log(style)}
                     />
                 </div>
             </section>

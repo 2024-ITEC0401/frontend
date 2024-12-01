@@ -15,8 +15,9 @@ export const ImageUploader = ({ className, onChange }: FileUploadProps) => {
     const { isUploaded, previewURL, image, fileInputRef, handleImageUpload, handleImageChange } = useImageUpload();
 
     useEffect(() => {
-        onChange && onChange(image);
-        console.log(image);
+        if (image) {
+            onChange && onChange(image);
+        }
     }, [image, onChange]);
 
     return (

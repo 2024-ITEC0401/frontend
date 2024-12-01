@@ -6,9 +6,11 @@ import { useFilterCloset } from "@/features/home/hooks/useFilterCloset";
 
 import { CategorySelector } from "@/entities/clothes/ui/CategorySelector";
 import { ColorSelector } from "@/entities/clothes/ui/ColorSelector";
+import { PatternSelector } from "@/entities/clothes/ui/PatternSelector";
 import { SeasonSelector } from "@/entities/clothes/ui/SeasonSelector";
 import { StyleSelector } from "@/entities/clothes/ui/StyleSelector";
 import { SubCategorySelector } from "@/entities/clothes/ui/SubCategorySelector";
+import { TextileSelector } from "@/entities/clothes/ui/TextileSelector";
 
 import { Button } from "@/shared/ui/button";
 import { Label } from "@/shared/ui/label";
@@ -55,7 +57,7 @@ export const FilterCloset = ({ onFilterChange }: FilterClosetProps) => {
                     <h1 className="text-lg font-bold">필터</h1>
                     <li className="w-full">
                         <Label>카테고리</Label>
-                        <CategorySelector onChange={(value) => setCategory(value)} />
+                        <CategorySelector onValueChange={(value) => setCategory(value)} />
                     </li>
 
                     <li className="w-full">
@@ -63,38 +65,44 @@ export const FilterCloset = ({ onFilterChange }: FilterClosetProps) => {
                         <SubCategorySelector
                             placeholder="하위 카테고리"
                             parentCategory={category}
-                            onChange={(value) => setSubCategory(value)}
+                            onValueChange={(value) => setSubCategory(value)}
                         />
                     </li>
 
                     <li className="w-full">
                         <Label>색상</Label>
-                        <ColorSelector placeholder="주 색상" onColorChange={(value) => setBaseColor(value)} />
+                        <ColorSelector placeholder="주 색상" onValueChange={(value) => setBaseColor(value)} />
                     </li>
 
                     <li className="w-full">
                         <Label>포인트 색상</Label>
-                        <ColorSelector placeholder="포인트 색상" onColorChange={(value) => setPointColor(value)} />
+                        <ColorSelector placeholder="포인트 색상" onValueChange={(value) => setPointColor(value)} />
                     </li>
 
                     <li className="w-full">
                         <Label>계절</Label>
-                        <SeasonSelector placeholder="계절" onChange={(value) => setSeason(value)} />
+                        <SeasonSelector placeholder="계절" onValueChange={(value) => setSeason(value)} />
                     </li>
 
                     <li className="w-full">
                         <Label>스타일</Label>
-                        <StyleSelector placeholder="스타일" onStyleChange={(value) => setStyle(value)}></StyleSelector>
+                        <StyleSelector placeholder="스타일" onValueChange={(value) => setStyle(value)}></StyleSelector>
                     </li>
 
                     <li className="w-full">
                         <Label>소재</Label>
-                        <StyleSelector placeholder="소재" onStyleChange={(value) => setStyle(value)}></StyleSelector>
+                        <TextileSelector
+                            placeholder="소재"
+                            onValueChange={(value) => setStyle(value)}
+                        ></TextileSelector>
                     </li>
 
                     <li className="w-full">
                         <Label>패턴</Label>
-                        <StyleSelector placeholder="패턴" onStyleChange={(value) => setStyle(value)}></StyleSelector>
+                        <PatternSelector
+                            placeholder="패턴"
+                            onValueChange={(value) => setStyle(value)}
+                        ></PatternSelector>
                     </li>
 
                     <li className="flex flex-col justify-end w-full">
