@@ -7,12 +7,13 @@ import * as SelectPrimitive from "@radix-ui/react-select";
 export interface SubCategorySelectorProps extends SelectPrimitive.SelectProps {
     parentCategory: string;
     placeholder?: string;
+    className?: string;
 }
 
-export const SubCategorySelector = ({ placeholder, parentCategory, ...props }: SubCategorySelectorProps) => {
+export const SubCategorySelector = ({ placeholder, parentCategory, className, ...props }: SubCategorySelectorProps) => {
     return (
         <Select {...props}>
-            <SelectTrigger className="w-full">
+            <SelectTrigger className={`w-full ${className || ""}`}>
                 <SelectValue placeholder={placeholder || "하위 카테고리"} />
             </SelectTrigger>
             <SelectContent>

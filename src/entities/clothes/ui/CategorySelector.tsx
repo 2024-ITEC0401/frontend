@@ -6,12 +6,13 @@ import * as SelectPrimitive from "@radix-ui/react-select";
 
 export interface CategorySelectorProps extends SelectPrimitive.SelectProps {
     placeholder?: string;
+    className?: string;
 }
 
-export const CategorySelector = ({ placeholder, ...props }: CategorySelectorProps) => {
+export const CategorySelector = ({ placeholder, className, ...props }: CategorySelectorProps) => {
     return (
         <Select {...props}>
-            <SelectTrigger className="w-full">
+            <SelectTrigger className={`w-full ${className || ""}`}>
                 <SelectValue placeholder={placeholder || "상위 카테고리"} />
             </SelectTrigger>
             <SelectContent>

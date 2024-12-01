@@ -6,12 +6,13 @@ import * as SelectPrimitive from "@radix-ui/react-select";
 
 export interface SeasonSelectorProps extends SelectPrimitive.SelectProps {
     placeholder?: string;
+    className?: string;
 }
 
-export const SeasonSelector = ({ placeholder, ...props }: SeasonSelectorProps) => {
+export const SeasonSelector = ({ placeholder, className, ...props }: SeasonSelectorProps) => {
     return (
         <Select {...props}>
-            <SelectTrigger className="w-full">
+            <SelectTrigger className={`w-full ${className || ""}`}>
                 <SelectValue placeholder={placeholder || "계절"} />
             </SelectTrigger>
             <SelectContent>
