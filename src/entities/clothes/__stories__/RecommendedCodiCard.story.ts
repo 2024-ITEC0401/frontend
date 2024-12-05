@@ -12,7 +12,7 @@ type Story = StoryObj<typeof RecommendedCodiCard>;
 
 export const Default: Story = {
     args: {
-        imgSrc: "https://via.placeholder.com/240",
+        imgSrc: ["https://via.placeholder.com/240"],
         title: "코디 제목",
         createdAt: "2021-10-10",
         hashTags: [

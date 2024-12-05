@@ -1,9 +1,10 @@
 import HashTag from "@/entities/tag/ui/HashTag";
 
+import grayImg from "@/shared/assets/gray.png";
 import { Card } from "@/shared/ui/card";
 
 export interface RecommendedCodiCardProps {
-    imgSrc: string;
+    imgSrc: string[];
     title: string;
     hashTags: string[];
     description: string;
@@ -13,7 +14,16 @@ export interface RecommendedCodiCardProps {
 export const RecommendedCodiCard = ({ imgSrc, title, hashTags, description, createdAt }: RecommendedCodiCardProps) => {
     return (
         <Card className="w-full max-w-[1400px] h-[200px] p-4 flex">
-            <img src={imgSrc} alt="" className="h-full mr-4 rounded-md aspect-square" />
+            <div className="grid grid-cols-2 grid-rows-2 gap-1 h-full w-[150px] mr-4 rounded-md">
+                {imgSrc.map((src, index) => (
+                    <img
+                        key={index}
+                        src={src === "gray" ? grayImg : src}
+                        alt=""
+                        className="w-full h-full object-cover rounded-md"
+                    />
+                ))}
+            </div>
             <div className="flex flex-col justify-center gap-1">
                 <h1 className="text-xl font-bold">{title}</h1>
                 <p className="text-gray-500">{createdAt}</p>
