@@ -1,7 +1,7 @@
 import { Card } from "@/shared/ui/card";
 
 export interface RecommendedProductCardProps {
-    imgSrc?: string;
+    imgSrc: string;
     name: string;
     mainCategory: string;
     subCategory: string;
@@ -11,7 +11,6 @@ export interface RecommendedProductCardProps {
     pattern: string;
     season: string;
     style: string;
-    description: string;
 }
 
 export const CodiDetailCard = ({

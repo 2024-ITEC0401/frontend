@@ -45,7 +45,6 @@ export const CodiDetailModal = ({ children, clothingList }: CodiDetailModalProps
                             pattern={clothing.pattern}
                             season={clothing.season}
                             style={clothing.style}
-                            description={clothing.description}
                         />
                     ))}
                 </div>
