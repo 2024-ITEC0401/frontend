@@ -11,6 +11,7 @@ export interface RecommendedCodiCardProps {
     description: string;
     createdAt: string;
     onDelete: () => void;
+    onClick?: () => void;
 }
 
 export const RecommendedCodiCard = ({
@@ -20,17 +21,18 @@ export const RecommendedCodiCard = ({
     description,
     createdAt,
     onDelete,
+    onClick,
 }: RecommendedCodiCardProps) => {
     const [menuVisible, setMenuVisible] = useState(false);
 
     return (
-        <Card className="w-full max-w-[1400px] h-[200px] p-4 flex relative">
+        <Card onClick={onClick} className="w-full max-w-[1400px] h-[200px] p-4 flex relative cursor-pointer">
             <div className="grid grid-cols-2 grid-rows-2 gap-1 h-full w-[150px] mr-4 rounded-md">
                 {imgSrc.map((src, index) => (
                     <img key={index} src={src} alt="" className="w-full h-full object-cover rounded-md" />
                 ))}
             </div>
-            <div className="flex flex-col justify-center gap-1">
+            <div className="flex flex-col justify-center gap-1 text-left">
                 <h1 className="text-xl font-bold">{title}</h1>
                 <p className="text-gray-500">{createdAt}</p>
                 <p className="h-12 line-clamp-2">{description}</p>
