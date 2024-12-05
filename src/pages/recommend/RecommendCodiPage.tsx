@@ -1,13 +1,15 @@
-// import { useState } from "react";
 import { FilterRecommendation } from "@/features/home/ui/FilterRecommendation";
 import { useDeleteCodi } from "@/features/recommend/hooks/useDeleteCodi";
 import { useGetAllCodis } from "@/features/recommend/hooks/useGetAllCodis";
+import { useGetCodiDetail } from "@/features/recommend/hooks/useGetCodiDetail";
 
+import { CodiDetailModal } from "@/entities/clothes/ui/CodiDetailModal";
 import { RecommendedCodiCard } from "@/entities/clothes/ui/RecommendedCodiCard";
 
 export default function RecommendCodiPage() {
     const { data: codis, isFetching } = useGetAllCodis();
     const { handleDeleteCodi } = useDeleteCodi();
+    const { data: codiDetail, handleGetCodiDetail } = useGetCodiDetail();
 
     if (isFetching) return <div>로딩중...</div>;
 
@@ -33,15 +35,17 @@ export default function RecommendCodiPage() {
             <section className="flex flex-col gap-2 mt-2 lg:flex-row">
                 <div className="flex flex-col gap-2 lg:w-full">
                     {codis?.map((codi, index) => (
-                        <RecommendedCodiCard
-                            key={index}
-                            imgSrc={codi.clothingImages}
-                            title={codi.name}
-                            hashTags={codi.hashtags?.split(",").map((tag) => tag.trim())}
-                            description={codi.description}
-                            createdAt={formatDate(codi.createdAt)}
-                            onDelete={() => handleDeleteCodi(codi.id)}
-                        />
+                        <CodiDetailModal key={index} clothingList={codiDetail?.clothingList || []}>
+                            <RecommendedCodiCard
+                                imgSrc={codi.clothingImages}
+                                title={codi.name}
+                                hashTags={codi.hashtags?.split(",").map((tag) => tag.trim())}
+                                description={codi.description}
+                                createdAt={formatDate(codi.createdAt)}
+                                onDelete={() => handleDeleteCodi(codi.id)}
+                                onClick={() => handleGetCodiDetail(codi.id)}
+                            />
+                        </CodiDetailModal>
                     ))}
                 </div>
             </section>
