@@ -48,7 +48,7 @@ export default function RecommendCodiPage() {
             console.log("transform data", data);
             handleGetCodis(data);
         }
-    }, []);
+    }, [clothes, handleGetCodis]);
     if (isfetchingClothes || getCodisStatus === "pending") return <div>Loading...</div>;
     console.log("codis", codis);
     return (
