@@ -62,10 +62,11 @@ export const AddClothModal = () => {
 
     return (
         <Dialog>
-            <DialogTrigger>
-                <Button className="w-full">
-                    <Plus /> 추가
-                </Button>
+            <DialogTrigger asChild>
+                <div className="w-full w-[90px] min-w-[90px] h-[40px] flex items-center justify-center gap-2 cursor-pointer text-white bg-green-600 hover:bg-green-500 rounded-md py-2 transition-colors">
+                    <Plus />
+                    추가
+                </div>
             </DialogTrigger>
             <DialogContent className="w-full max-w-[900px] p-4">
                 <DialogHeader>

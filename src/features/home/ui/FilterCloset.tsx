@@ -47,10 +47,11 @@ export const FilterCloset = ({ onFilterChange }: FilterClosetProps) => {
 
     return (
         <Sheet>
-            <SheetTrigger>
-                <Button variant="ghost">
-                    <Filter /> 필터
-                </Button>
+            <SheetTrigger asChild>
+                <div className="flex w-[90px] min-w-[90px] h-[40px] items-center gap-2 px-3 py-2 rounded-md cursor-pointer text-gray-600 hover:text-white hover:bg-gray-600 transition-colors mr-2">
+                    <Filter />
+                    필터
+                </div>
             </SheetTrigger>
             <SheetContent>
                 <ul className="flex flex-col gap-2 mt-[50px]">

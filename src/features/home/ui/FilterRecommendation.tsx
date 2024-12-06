@@ -18,10 +18,11 @@ export const FilterRecommendation = () => {
 
     return (
         <Sheet>
-            <SheetTrigger>
-                <Button variant="ghost">
-                    <Filter /> 필터
-                </Button>
+            <SheetTrigger asChild>
+                <div className="flex items-center gap-2 px-3 py-2 rounded-md cursor-pointer text-gray-600 hover:text-white hover:bg-gray-600 transition-colors">
+                    <Filter />
+                    필터
+                </div>
             </SheetTrigger>
 
             <SheetContent>
@@ -72,10 +73,13 @@ export const FilterRecommendation = () => {
                     })}
                 </div>
 
-                <Button className="w-full mt-2" variant="outline" onClick={() => resetFilter()}>
+                <div
+                    className="w-full mt-2 flex items-center justify-center gap-2 border border-gray-300 rounded-md py-2 cursor-pointer hover:bg-gray-100 hover:border-gray-400 transition-colors"
+                    onClick={() => resetFilter()}
+                >
                     <RefreshCcw />
                     필터 초기화
-                </Button>
+                </div>
             </SheetContent>
         </Sheet>
     );
