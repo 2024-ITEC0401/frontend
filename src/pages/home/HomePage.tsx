@@ -3,27 +3,11 @@ import { useState } from "react";
 import { useFetchAllClothes } from "@/features/home/hooks/useFetchAllclothes";
 import { FilterCloset } from "@/features/home/ui/FilterCloset";
 import { useGetSpecificCodis } from "@/features/recommend/hooks/useGetSpecificCodis";
-import { UpdateCodisRequestBody } from "@/features/recommend/hooks/useUpdateCodis";
 
 import { AddClothModal } from "@/entities/clothes/ui/AddClothModal";
 import { ClothCard } from "@/entities/clothes/ui/ClothCard";
 
 import { Button } from "@/shared/ui/button";
-
-interface ClothInfo {
-    id: number;
-    imageUri: string;
-    name: string;
-    mainCategory: string;
-    subCategory: string;
-    baseColor: string;
-    pointColor: string;
-    textile: string;
-    pattern: string;
-    season: string;
-    style: string;
-    description: string;
-}
 
 export default function HomePage() {
     const [filter, setFilter] = useState<Record<string, string>>({});
