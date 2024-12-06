@@ -14,8 +14,10 @@ interface ViewProfileResponseBody {
     styleList: string[];
 }
 
+const viewProfilePath = "/api/v1/user/profile";
+
 const viewProfile = async () => {
-    const response = await fetchInstance.get<ViewProfileResponseBody>("/api/v1/user/profile");
+    const response = await fetchInstance.get<ViewProfileResponseBody>(viewProfilePath);
     return response.data;
 };
 
