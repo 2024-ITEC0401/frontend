@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { useFetchAllClothes } from "@/features/home/hooks/useFetchAllclothes";
 import { FilterCloset } from "@/features/home/ui/FilterCloset";
