@@ -16,13 +16,6 @@ interface EditProfileRequestBody {
     styleList: string[];
 }
 
-interface Profile {
-    tone: string;
-    age: number;
-    colorList: string[];
-    styleList: string[];
-}
-
 const editProfile = async (data: EditProfileRequestBody): Promise<void> => {
     const response = await fetchInstance.put("/api/v1/user/profile", data);
     return response.data;
@@ -33,10 +26,10 @@ export const useEditProfile = () => {
     const heightRef = useRef<HTMLInputElement | null>(null);
     const weightRef = useRef<HTMLInputElement | null>(null);
 
-    const [tone, setTone] = useState("");
-    const [age, setAge] = useState("");
-    const [color, setColor] = useState<string>("");
-    const [style, setStyle] = useState<string>("");
+    const [tone, setTone] = useState<string>("");
+    const [age, setAge] = useState<string>("");
+    const [colorList, setColorList] = useState<string[]>([]);
+    const [styleList, setStyleList] = useState<string[]>([]);
 
     const { mutate } = useMutation({
         mutationFn: () => {
@@ -47,8 +40,8 @@ export const useEditProfile = () => {
                 height: Number(heightRef.current?.value),
                 weight: Number(weightRef.current?.value),
                 tone: tone,
-                colorList: [color],
-                styleList: [style],
+                colorList: colorList,
+                styleList: styleList,
             };
             console.log(payload);
             return editProfile(payload);
@@ -68,13 +61,6 @@ export const useEditProfile = () => {
         mutate();
     }, [mutate]);
 
-    const initializeFields = (profile: Profile) => {
-        setTone(profile?.tone || "");
-        setAge(profile?.age.toString() || "");
-        setColor(profile?.colorList[0] || "");
-        setStyle(profile?.styleList[0] || "");
-    };
-
     return {
         nicknameRef,
         heightRef,
@@ -83,11 +69,10 @@ export const useEditProfile = () => {
         setTone,
         age,
         setAge,
-        color,
-        setColor,
-        style,
-        setStyle,
+        colorList,
+        setColorList,
+        styleList,
+        setStyleList,
         handleSaveClick,
-        initializeFields,
     };
 };
