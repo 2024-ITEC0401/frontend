@@ -16,7 +16,6 @@ interface ViewProfileResponseBody {
 
 const viewProfile = async () => {
     const response = await fetchInstance.get<ViewProfileResponseBody>("/api/v1/user/profile");
-    console.log(response.data);
     return response.data;
 };
 
