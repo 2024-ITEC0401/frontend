@@ -1,70 +1,70 @@
 export const textiles = [
     {
         textileLabel: "면",
-        textileValue: "COTTON",
+        textileValue: "면",
     },
     {
         textileLabel: "리넨",
-        textileValue: "LINEN",
+        textileValue: "리넨",
     },
     {
         textileLabel: "폴리에스터",
-        textileValue: "POLYESTER",
+        textileValue: "폴리에스터",
     },
     {
         textileLabel: "니트, 울",
-        textileValue: "KNIT_WOOL",
+        textileValue: "니트, 울",
     },
     {
         textileLabel: "모피",
-        textileValue: "FUR",
+        textileValue: "모피",
     },
     {
         textileLabel: "트위드",
-        textileValue: "TWEED",
+        textileValue: "트위드",
     },
     {
         textileLabel: "나일론",
-        textileValue: "NYLON",
+        textileValue: "나일론",
     },
     {
         textileLabel: "데님",
-        textileValue: "DENIM",
+        textileValue: "데님",
     },
     {
         textileLabel: "가죽",
-        textileValue: "LEATHER",
+        textileValue: "가죽",
     },
     {
         textileLabel: "스웨이드",
-        textileValue: "SUEDE",
+        textileValue: "스웨이드",
     },
     {
         textileLabel: "벨벳",
-        textileValue: "VELVET",
+        textileValue: "벨벳",
     },
     {
         textileLabel: "쉬폰",
-        textileValue: "CHIFFON",
+        textileValue: "쉬폰",
     },
     {
         textileLabel: "실크",
-        textileValue: "SILK",
+        textileValue: "실크",
     },
     {
         textileLabel: "코듀로이",
-        textileValue: "CORDUROY",
+        textileValue: "코듀로이",
     },
     {
         textileLabel: "메탈릭",
-        textileValue: "METALLIC",
+        textileValue: "메탈릭",
     },
     {
         textileLabel: "레이스",
-        textileValue: "LACE",
+        textileValue: "레이스",
     },
     {
         textileLabel: "기타",
-        textileValue: "OTHER",
+        textileValue: "기타",
     },
 ];
