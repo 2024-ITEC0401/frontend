@@ -44,7 +44,10 @@ export const RecommendedCodiCard = ({
             </div>
             <div className="absolute top-4 right-4">
                 <button
-                    onClick={() => setMenuVisible(!menuVisible)}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        setMenuVisible(!menuVisible);
+                    }}
                     className="w-10 h-8 p-2 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
                 >
                     ···
@@ -53,7 +56,8 @@ export const RecommendedCodiCard = ({
                 {menuVisible && (
                     <div className="absolute right-0 mt-2 w-28 bg-white shadow-md rounded-md">
                         <button
-                            onClick={() => {
+                            onClick={(e) => {
+                                e.stopPropagation();
                                 setMenuVisible(false);
                                 onDelete();
                             }}

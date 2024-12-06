@@ -25,7 +25,9 @@ interface CodiDetailModalProps {
 export const CodiDetailModal = ({ children, clothingList }: CodiDetailModalProps) => {
     return (
         <Dialog>
-            <DialogTrigger>{children}</DialogTrigger>
+            <DialogTrigger asChild>
+                <div>{children}</div>
+            </DialogTrigger>
             <DialogContent className="w-full max-w-[900px] p-4 overflow-x-auto">
                 <DialogHeader>
                     <DialogTitle>코디 상세 정보</DialogTitle>
