@@ -33,11 +33,11 @@ export default function ProfilePage() {
     } = useEditProfile();
     const { data: profile, isFetching } = useViewProfile();
 
-    useEffect(() => {
-        if (profile) {
-            initializeFields(profile);
-        }
-    }, [profile, initializeFields]);
+    // useEffect(() => {
+    //     if (profile) {
+    //         initializeFields(profile);
+    //     }
+    // }, [profile, initializeFields]);
 
     if (isFetching) {
         return <div>Loading...</div>;
@@ -97,10 +97,11 @@ export default function ProfilePage() {
                         className="w-full"
                         placeholder="피부톤"
                         disabled={isViewMode}
-                        // deaultValue={tone}
                         value={tone}
-                        // deaultValue={profile?.tone}
-                        onValueChange={(value) => setTone(value)}
+                        onValueChange={(value) => {
+                            console.log("Selected Tone:", value);
+                            setTone(value);
+                        }}
                     >
                         <SelectItem value="warm">웜톤</SelectItem>
                         <SelectItem value="cool">쿨톤</SelectItem>
@@ -113,10 +114,11 @@ export default function ProfilePage() {
                         className="w-full"
                         placeholder="연령대"
                         disabled={isViewMode}
-                        // deaultValue={age}
                         value={age}
-                        // deaultValue={profile?.age.toString()}
-                        onValueChange={(value) => setAge(value)}
+                        onValueChange={(value) => {
+                            console.log("Selected Age:", value);
+                            setAge(value);
+                        }}
                     >
                         <SelectItem value="10">10대</SelectItem>
                         <SelectItem value="20">20대</SelectItem>
@@ -131,10 +133,11 @@ export default function ProfilePage() {
                     <ColorSelector
                         disabled={isViewMode}
                         placeholder="선호하는 색상을 선택해주세요"
-                        // defaultValue={color}
                         value={color}
-                        // defaultValue={profile?.colorList[0]}
-                        onValueChange={(value) => setColor(value)}
+                        onValueChange={(value) => {
+                            console.log("Selected Color:", value);
+                            setColor(value);
+                        }}
                     />
                 </div>
 
@@ -143,22 +146,24 @@ export default function ProfilePage() {
                     <StyleSelector
                         disabled={isViewMode}
                         placeholder="선호하는 스타일을 선택해주세요"
-                        // defaultValue={style}
                         value={style}
-                        // defaultValue={profile?.styleList[0]}
-                        onValueChange={(value) => setStyle(value)}
+                        onValueChange={(value) => {
+                            console.log("Selected Style:", value);
+                            setStyle(value);
+                        }}
                     />
                 </div>
             </section>
 
-            <div className="flex gap-1 my-4">
+            <div className="flex justify-center gap-8 my-4">
                 <Button
+                    variant="secondary"
                     onClick={() => {
                         if (isViewMode) switchToEditMode();
                         else switchToViewMode();
                     }}
                 >
-                    정보 수정하기
+                    View / Edit 전환
                 </Button>
                 <Button
                     onClick={() => {
