@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { useFetchAllClothes } from "@/features/home/hooks/useFetchAllclothes";
 import { FilterCloset } from "@/features/home/ui/FilterCloset";
@@ -9,10 +9,6 @@ import { ClothCard } from "@/entities/clothes/ui/ClothCard";
 export default function HomePage() {
     const [filter, setFilter] = useState<Record<string, string>>({});
     const { data: clothes, isLoading, isError } = useFetchAllClothes();
-
-    useEffect(() => {
-        // console.table(filter);
-    }, [filter]);
 
     if (isLoading) {
         return <div>로딩 중...</div>;
@@ -37,15 +33,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-wrap justify-center gap-1.5 my-2">
-                {clothes?.map((cloth, index) => (
-                    <ClothCard
-                        key={index}
-                        clothId={cloth.id}
-                        imgSrc={cloth.imageUri}
-                        title={cloth.name}
-                        description={cloth.description}
-                    />
-                ))}
+                {clothes?.map((cloth) => <ClothCard key={cloth.id} cloth={cloth} />)}
             </div>
         </div>
     );
