@@ -9,6 +9,7 @@ import SignUpPage from "@/pages/auth/SignUpPage";
 import HomePage from "@/pages/home/HomePage";
 import ProfilePage from "@/pages/profile/ProfilePage";
 import RecommendCodiPage from "@/pages/recommend/RecommendCodiPage";
+import RecommendNaturalLanguagePage from "@/pages/recommend/RecommendNaturalLanguagePage";
 import RecommendProductPage from "@/pages/recommend/RecommendProductPage";
 
 export const Router = () => {
@@ -25,6 +26,7 @@ export const Router = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/recommend/codi" element={<RecommendCodiPage />} />
                 <Route path="/recommend/product" element={<RecommendProductPage />} />
+                <Route path="/recommend/chat" element={<RecommendNaturalLanguagePage />} />
                 <Route path="/profile" element={<ProfilePage />} />
             </Route>
 
