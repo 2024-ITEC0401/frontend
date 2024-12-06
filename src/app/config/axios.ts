@@ -9,7 +9,7 @@ const baseURL = BASE_URL;
 
 export const createInstance = (config: AxiosRequestConfig): AxiosInstance => {
     const instance = axios.create({
-        timeout: 10000,
+        timeout: 30000,
         ...config,
         baseURL,
         headers: {
