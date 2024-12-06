@@ -134,7 +134,7 @@ SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 type SelectorProps = {
     className?: string;
     placeholder?: string;
-    deaultValue?: string;
+    defaultValue?: string;
     children?: React.ReactNode[];
 } & SelectPrimitive.SelectProps;
 
