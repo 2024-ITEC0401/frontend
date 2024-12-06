@@ -1,4 +1,5 @@
-import { fetchInstance, queryClient } from "@/app/config/axios";
+import { fetchInstance } from "@/app/config/axios";
+import { queryClient } from "@/app/config/query";
 
 import { useMutation } from "@tanstack/react-query";
 

@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-import { fetchInstance, queryClient } from "@/app/config/axios";
+import { fetchInstance } from "@/app/config/axios";
+import { queryClient } from "@/app/config/query";
 
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 interface CodiDetailResponseBody {
     id: number;
