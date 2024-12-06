@@ -3,6 +3,7 @@ import { fetchInstance } from "@/app/config/axios";
 import { useQuery } from "@tanstack/react-query";
 
 interface ClothDetailResponse {
+    id: number;
     imageUri: string;
     name: string;
     mainCategory: string;
