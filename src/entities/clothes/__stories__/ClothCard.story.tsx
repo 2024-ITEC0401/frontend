@@ -12,12 +12,19 @@ type Story = StoryObj<typeof ClothCard>;
 
 export const Default: Story = {
     args: {
-        imgSrc: "https://via.placeholder.com/150",
-        title: "흰색 롱 슬리브",
-        description: "흰색 롱 슬리브입니다.",
-
-        onDelete: () => console.log("onDelete"),
-        onEdit: () => console.log("onEdit"),
-        onFindMatchingOutfit: () => console.log("onFindMatchingOutfit"),
+        cloth: {
+            id: 1,
+            imageUri: "string",
+            name: "코디",
+            mainCategory: "상의",
+            subCategory: "티셔츠",
+            baseColor: "검정",
+            pointColor: "회색",
+            textile: "면",
+            pattern: "무지",
+            season: "봄",
+            style: "캐주얼",
+            description: "기본 무지티",
+        },
     },
 };
