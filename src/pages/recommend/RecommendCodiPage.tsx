@@ -1,17 +1,56 @@
+import { useFetchAllClothes } from "@/features/home/hooks/useFetchAllclothes";
 import { FilterRecommendation } from "@/features/home/ui/FilterRecommendation";
 import { useDeleteCodi } from "@/features/recommend/hooks/useDeleteCodi";
 import { useGetAllCodis } from "@/features/recommend/hooks/useGetAllCodis";
 import { useGetCodiDetail } from "@/features/recommend/hooks/useGetCodiDetail";
+import { UpdateCodisRequestBody, useUpdateCodis } from "@/features/recommend/hooks/useUpdateCodis";
 
 import { CodiDetailModal } from "@/entities/clothes/ui/CodiDetailModal";
 import { RecommendedCodiCard } from "@/entities/clothes/ui/RecommendedCodiCard";
 
+import { Button } from "@/shared/ui/button";
+
+interface ClothInfo {
+    id: number;
+    imageUri: string;
+    name: string;
+    mainCategory: string;
+    subCategory: string;
+    baseColor: string;
+    pointColor: string;
+    textile: string;
+    pattern: string;
+    season: string;
+    style: string;
+    description: string;
+}
+
 export default function RecommendCodiPage() {
     const { data: codis, isFetching } = useGetAllCodis();
+    const { data: clothes } = useFetchAllClothes();
     const { handleDeleteCodi } = useDeleteCodi();
     const { data: codiDetail, handleGetCodiDetail } = useGetCodiDetail();
+    const { handleUpdateCodis } = useUpdateCodis();
 
     if (isFetching) return <div>로딩중...</div>;
+
+    const transformData = (clothes: ClothInfo[]): UpdateCodisRequestBody => {
+        return {
+            clothing: clothes.map((cloth: ClothInfo) => ({
+                baseColor: cloth.baseColor,
+                clothing_id: cloth.id,
+                description: cloth.description,
+                mainCategory: cloth.mainCategory,
+                name: cloth.name,
+                pattern: cloth.pattern,
+                pointColor: cloth.pointColor,
+                season: cloth.season,
+                style: cloth.style,
+                subCategory: cloth.subCategory,
+                textile: cloth.textile,
+            })),
+        };
+    };
 
     const formatDate = (dateString: string) => {
         const date = new Date(dateString);
@@ -21,6 +60,14 @@ export default function RecommendCodiPage() {
         return `${year}. ${month}.${day}`;
     };
 
+    const handleUpdate = () => {
+        if (clothes) {
+            const transformedData = transformData(clothes);
+            handleUpdateCodis(transformedData);
+        } else {
+            console.error("Clothes data is not available.");
+        }
+    };
     return (
         <div>
             <div className="sticky top-0 flex items-center justify-between py-1 bg-white border-b-[1px]">
@@ -30,6 +77,7 @@ export default function RecommendCodiPage() {
                 </div>
                 <div className="flex gap-1">
                     <FilterRecommendation />
+                    <Button onClick={handleUpdate}>갱신 하기</Button>
                 </div>
             </div>
             <section className="flex flex-col gap-2 mt-2 lg:flex-row">
