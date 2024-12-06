@@ -123,17 +123,13 @@ export const useAddCloth = () => {
 
         uploadCloth(requestData, {
             onSuccess: () => {
-                console.log("옷 등록 성공:", requestData);
                 alert("옷이 성공적으로 등록되었습니다!");
 
                 queryClient.invalidateQueries({ queryKey: ["allClothes"] });
-
                 dispatch({ type: "RESET" });
                 setInvalidFields([]);
             },
-            onError: (error) => {
-                console.log("옷 등록 실패:", requestData);
-                console.error("옷 등록 실패:", error);
+            onError: () => {
                 alert("옷 등록에 실패했습니다. 다시 시도해주세요.");
             },
         });
