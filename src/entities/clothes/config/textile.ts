@@ -12,8 +12,8 @@ export const textiles = [
         textileValue: "폴리에스터",
     },
     {
-        textileLabel: "니트, 울",
-        textileValue: "니트, 울",
+        textileLabel: "니트/울",
+        textileValue: "니트/울",
     },
     {
         textileLabel: "모피",
