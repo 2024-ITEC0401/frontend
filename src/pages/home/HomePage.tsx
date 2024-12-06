@@ -10,10 +10,6 @@ export default function HomePage() {
     const [filter, setFilter] = useState<Record<string, string>>({});
     const { data: clothes, isLoading, isError } = useFetchAllClothes();
 
-    useEffect(() => {
-        // console.table(filter);
-    }, [filter]);
-
     if (isLoading) {
         return <div>로딩 중...</div>;
     }
@@ -37,9 +33,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-wrap justify-center gap-1.5 my-2">
-                {clothes?.map((cloth, index) => (
-                    <ClothCard key={index} imgSrc={cloth.imageUri} title={cloth.name} description={cloth.description} />
-                ))}
+                {clothes?.map((cloth) => <ClothCard key={cloth.id} cloth={cloth} />)}
             </div>
         </div>
     );

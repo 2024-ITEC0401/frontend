@@ -2,7 +2,8 @@ import { fetchInstance } from "@/app/config/axios";
 
 import { useQuery } from "@tanstack/react-query";
 
-interface ClothInfo {
+export interface ClothInfo {
+    id: number;
     imageUri: string;
     name: string;
     mainCategory: string;
