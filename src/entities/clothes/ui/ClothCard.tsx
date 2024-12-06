@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { ClothInfo } from "@/features/home/hooks/useFetchAllclothes";
 
 import { useCloth } from "@/entities/clothes/hooks/useCloth";
@@ -21,6 +23,16 @@ export interface ClothCardProps {
 
 export const ClothCard = ({ cloth }: ClothCardProps) => {
     const { handleEdit, handleRecommend, handleDelete } = useCloth(cloth);
+
+    const [editableCloth, setEditableCloth] = useState(cloth);
+
+    const handleChange = (field: keyof ClothInfo, value: string) => {
+        setEditableCloth((prev) => ({ ...prev, [field]: value }));
+    };
+
+    const handleSaveEdit = () => {
+        handleEdit(editableCloth);
+    };
 
     return (
         <Dialog>
@@ -49,57 +61,93 @@ export const ClothCard = ({ cloth }: ClothCardProps) => {
                     <div className="w-[40%]">
                         <div>
                             <Label>옷 이름</Label>
-                            <Input className="w-full" value={cloth.name} />
+                            <Input
+                                className="w-full"
+                                value={editableCloth.name}
+                                onChange={(e) => handleChange("name", e.target.value)}
+                            />
                         </div>
 
                         <div>
                             <Label>옷 설명</Label>
-                            <Input className="w-full" value={cloth.description} />
+                            <Input
+                                className="w-full"
+                                value={editableCloth.description}
+                                onChange={(e) => handleChange("description", e.target.value)}
+                            />
                         </div>
 
                         <ul className="grid grid-cols-2 gap-1 list-none">
                             <li>
                                 <Label>카테고리</Label>
-                                <CategorySelector placeholder="Main Category" value={cloth.mainCategory} />
+                                <CategorySelector
+                                    placeholder="Main Category"
+                                    value={editableCloth.mainCategory}
+                                    onValueChange={(value) => handleChange("mainCategory", value)}
+                                />
                             </li>
 
                             <li>
                                 <Label>하위 카테고리</Label>
                                 <SubCategorySelector
                                     placeholder="Sub Category"
-                                    parentCategory={cloth.mainCategory}
-                                    value={cloth.subCategory}
+                                    parentCategory={editableCloth.mainCategory}
+                                    value={editableCloth.subCategory}
+                                    onValueChange={(value) => handleChange("subCategory", value)}
                                 />
                             </li>
 
                             <li>
                                 <Label>주 색상</Label>
-                                <ColorSelector value={cloth.baseColor} />
+                                <ColorSelector
+                                    value={editableCloth.baseColor}
+                                    onValueChange={(value) => handleChange("baseColor", value)}
+                                />
                             </li>
 
                             <li>
                                 <Label>포인트 색상</Label>
-                                <ColorSelector placeholder="Point Color" value={cloth.pointColor} />
+                                <ColorSelector
+                                    placeholder="Point Color"
+                                    value={editableCloth.pointColor}
+                                    onValueChange={(value) => handleChange("pointColor", value)}
+                                />
                             </li>
 
                             <li>
                                 <Label>계절</Label>
-                                <SeasonSelector placeholder="Season" value={cloth.season} />
+                                <SeasonSelector
+                                    placeholder="Season"
+                                    value={editableCloth.season}
+                                    onValueChange={(value) => handleChange("season", value)}
+                                />
                             </li>
 
                             <li>
                                 <Label>스타일</Label>
-                                <StyleSelector placeholder="Style" value={cloth.style} />
+                                <StyleSelector
+                                    placeholder="Style"
+                                    value={editableCloth.style}
+                                    onValueChange={(value) => handleChange("style", value)}
+                                />
                             </li>
 
                             <li>
                                 <Label>재질</Label>
-                                <TextileSelector placeholder="Textile" value={cloth.textile} />
+                                <TextileSelector
+                                    placeholder="Textile"
+                                    value={editableCloth.textile}
+                                    onValueChange={(value) => handleChange("textile", value)}
+                                />
                             </li>
 
                             <li>
                                 <Label>패턴</Label>
-                                <PatternSelector placeholder="Pattern" value={cloth.pattern} />
+                                <PatternSelector
+                                    placeholder="Pattern"
+                                    value={editableCloth.pattern}
+                                    onValueChange={(value) => handleChange("pattern", value)}
+                                />
                             </li>
                         </ul>
                     </div>
@@ -108,7 +156,7 @@ export const ClothCard = ({ cloth }: ClothCardProps) => {
                     <Button variant="outline" className="w-full" onClick={handleRecommend}>
                         코디 추천받기
                     </Button>
-                    <Button className="w-full" onClick={handleEdit}>
+                    <Button className="w-full" onClick={handleSaveEdit}>
                         수정
                     </Button>
                     <Button className="w-full" variant="destructive" onClick={handleDelete}>
