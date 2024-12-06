@@ -143,6 +143,7 @@ export default function ProfilePage() {
                             if (selectedColor) {
                                 setColorList([selectedColor.colorValue]);
                             }
+                            setColorList([value]);
                         }}
                     />
                 </div>
