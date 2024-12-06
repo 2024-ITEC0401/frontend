@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { useEditProfile } from "@/features/profile/hooks/useEditProfile";
 import { useViewProfile } from "@/features/profile/hooks/useViewProfile";
 
+import { colors } from "@/entities/clothes/config/color";
+import { styles } from "@/entities/clothes/config/styles";
 import { ColorSelector } from "@/entities/clothes/ui/ColorSelector";
 import { StyleSelector } from "@/entities/clothes/ui/StyleSelector";
 
@@ -24,20 +26,23 @@ export default function ProfilePage() {
         setTone,
         age,
         setAge,
-        color,
-        setColor,
-        style,
-        setStyle,
+        colorList,
+        setColorList,
+        styleList,
+        setStyleList,
         handleSaveClick,
-        initializeFields,
     } = useEditProfile();
     const { data: profile, isFetching } = useViewProfile();
 
-    // useEffect(() => {
-    //     if (profile) {
-    //         initializeFields(profile);
-    //     }
-    // }, [profile, initializeFields]);
+    useEffect(() => {
+        if (profile) {
+            setTone(profile.tone);
+            setAge(profile.age.toString());
+            setColorList(profile.colorList);
+            setStyleList(profile.styleList);
+            console.log("Profile Data:", profile);
+        }
+    }, [profile, setTone, setAge, setColorList, setStyleList]);
 
     if (isFetching) {
         return <div>Loading...</div>;
@@ -52,13 +57,13 @@ export default function ProfilePage() {
                 <AvatarFallback className="text-lg"></AvatarFallback>
             </Avatar>
 
-            <section className="grid grid-cols-1 gap-2 md:grid-cols-2">
-                <div>
+            <section className="grid grid-cols-1 gap-6 md:grid-cols-2 px-4">
+                <div className="flex flex-col gap-2">
                     <Label>이메일</Label>
                     <Input type="text" className="w-full" disabled={true} defaultValue={profile?.email}></Input>
                 </div>
 
-                <div>
+                <div className="flex flex-col gap-2">
                     <Label>닉네임</Label>
                     <Input
                         type="text"
@@ -69,7 +74,7 @@ export default function ProfilePage() {
                     ></Input>
                 </div>
 
-                <div>
+                <div className="flex flex-col gap-2">
                     <Label>키</Label>
                     <Input
                         type="text"
@@ -80,7 +85,7 @@ export default function ProfilePage() {
                     ></Input>
                 </div>
 
-                <div>
+                <div className="flex flex-col gap-2">
                     <Label>몸무게</Label>
                     <Input
                         type="text"
@@ -91,7 +96,7 @@ export default function ProfilePage() {
                     ></Input>
                 </div>
 
-                <div>
+                <div className="flex flex-col gap-2">
                     <Label>피부톤</Label>
                     <Selector
                         className="w-full"
@@ -108,13 +113,13 @@ export default function ProfilePage() {
                     </Selector>
                 </div>
 
-                <div>
+                <div className="flex flex-col gap-2">
                     <Label>연령대</Label>
                     <Selector
                         className="w-full"
                         placeholder="연령대"
                         disabled={isViewMode}
-                        value={age}
+                        value={String(age)}
                         onValueChange={(value) => {
                             console.log("Selected Age:", value);
                             setAge(value);
@@ -128,34 +133,39 @@ export default function ProfilePage() {
                     </Selector>
                 </div>
 
-                <div>
+                <div className="flex flex-col gap-2">
                     <Label>선호하는 색상</Label>
                     <ColorSelector
                         disabled={isViewMode}
                         placeholder="선호하는 색상을 선택해주세요"
-                        value={color}
+                        value={colorList[0]}
                         onValueChange={(value) => {
-                            console.log("Selected Color:", value);
-                            setColor(value);
+                            const selectedColor = colors.find((c) => c.colorValue === value);
+                            if (selectedColor) {
+                                setColorList([selectedColor.colorValue]);
+                            }
                         }}
                     />
                 </div>
 
-                <div>
+                <div className="flex flex-col gap-2">
                     <Label>선호하는 스타일</Label>
                     <StyleSelector
                         disabled={isViewMode}
                         placeholder="선호하는 스타일을 선택해주세요"
-                        value={style}
+                        value={styleList[0]}
                         onValueChange={(value) => {
-                            console.log("Selected Style:", value);
-                            setStyle(value);
+                            const selectedStyle = styles.find((s) => s.value === value);
+                            if (selectedStyle) {
+                                setStyleList([selectedStyle.enLabel]);
+                            }
+                            setStyleList([value]);
                         }}
                     />
                 </div>
             </section>
 
-            <div className="flex justify-center gap-8 my-4">
+            <div className="flex justify-center gap-8 my-4 mt-16">
                 <Button
                     variant="secondary"
                     onClick={() => {
