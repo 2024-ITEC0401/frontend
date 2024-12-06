@@ -2,13 +2,58 @@ import { useState } from "react";
 
 import { useFetchAllClothes } from "@/features/home/hooks/useFetchAllclothes";
 import { FilterCloset } from "@/features/home/ui/FilterCloset";
+import { useGetSpecificCodis } from "@/features/recommend/hooks/useGetSpecificCodis";
+import { UpdateCodisRequestBody } from "@/features/recommend/hooks/useUpdateCodis";
 
 import { AddClothModal } from "@/entities/clothes/ui/AddClothModal";
 import { ClothCard } from "@/entities/clothes/ui/ClothCard";
 
+import { Button } from "@/shared/ui/button";
+
+interface ClothInfo {
+    id: number;
+    imageUri: string;
+    name: string;
+    mainCategory: string;
+    subCategory: string;
+    baseColor: string;
+    pointColor: string;
+    textile: string;
+    pattern: string;
+    season: string;
+    style: string;
+    description: string;
+}
+
 export default function HomePage() {
     const [filter, setFilter] = useState<Record<string, string>>({});
     const { data: clothes, isLoading, isError } = useFetchAllClothes();
+    const { handleGetSpecificCodis } = useGetSpecificCodis();
+
+    const [isSelected, setIsSelected] = useState(false);
+    const [selectedClothes, setSelectedClothes] = useState<number[]>([]);
+
+    const toggleClothSelection = (id: number) => {
+        setSelectedClothes((prev) => (prev.includes(id) ? prev.filter((clothId) => clothId !== id) : [...prev, id]));
+    };
+
+    const handleToggleSelectMode = () => {
+        setIsSelected((prev) => !prev);
+
+        if (isSelected) {
+            setSelectedClothes([]);
+        }
+    };
+
+    const handleAddCodis = () => {
+        console.log({ clothing: selectedClothes });
+        handleGetSpecificCodis({ clothing: selectedClothes });
+        alert("코디 추천 페이지에서 확인해보세요!");
+
+        setSelectedClothes([]);
+        setIsSelected(false);
+        // navigate("/recommend/codi");
+    };
 
     if (isLoading) {
         return <div>로딩 중...</div>;
@@ -29,11 +74,39 @@ export default function HomePage() {
                 <div className="flex gap-1">
                     <FilterCloset onFilterChange={(filter) => setFilter(filter)} />
                     <AddClothModal />
+
+                    <Button variant="outline" className="w-[120px]" onClick={handleToggleSelectMode}>
+                        {isSelected ? "선택 모드 해제" : "옷 선택하기"}
+                    </Button>
+                    <Button
+                        variant="outline"
+                        className="w-[120px]"
+                        disabled={selectedClothes.length === 0}
+                        onClick={handleAddCodis}
+                    >
+                        코디 생성하기
+                    </Button>
+                    {/* <Button
+                        variant="outline"
+                        className="w-[120px]"
+                        disabled={selectedClothes.length === 0}
+                        onClick={handleGoToChat}
+                    >
+                        채팅하러 가기
+                    </Button> */}
                 </div>
             </div>
 
             <div className="flex flex-wrap justify-center gap-1.5 my-2">
-                {clothes?.map((cloth) => <ClothCard key={cloth.id} cloth={cloth} />)}
+                {clothes?.map((cloth) => (
+                    <ClothCard
+                        key={cloth.id}
+                        cloth={cloth}
+                        isActive={isSelected}
+                        isSelected={selectedClothes.includes(cloth.id)}
+                        onToggleSelect={toggleClothSelection}
+                    />
+                ))}
             </div>
         </div>
     );
