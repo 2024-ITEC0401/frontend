@@ -7,11 +7,12 @@ import * as SelectPrimitive from "@radix-ui/react-select";
 export interface ColorSelectorProps extends SelectPrimitive.SelectProps {
     className?: string;
     placeholder?: string;
+    defaultValue?: string;
 }
 
-export const ColorSelector = ({ className, ...props }: ColorSelectorProps) => {
+export const ColorSelector = ({ className, defaultValue, ...props }: ColorSelectorProps) => {
     return (
-        <Selector className={className} {...props} {...props}>
+        <Selector className={className} defaultValue={defaultValue} {...props} {...props}>
             {colors.map((color, index) => {
                 return (
                     <SelectItem key={index} value={color.colorValue}>

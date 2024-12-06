@@ -1,18 +1,18 @@
 export const seasons = [
     {
         seasonLabel: "봄",
-        seasonValue: "SPRING",
+        seasonValue: "봄",
     },
     {
         seasonLabel: "여름",
-        seasonValue: "SUMMER",
+        seasonValue: "여름",
     },
     {
         seasonLabel: "가을",
-        seasonValue: "AUTUMN",
+        seasonValue: "가을",
     },
     {
         seasonLabel: "겨울",
-        seasonValue: "WINTER",
+        seasonValue: "겨울",
     },
 ];

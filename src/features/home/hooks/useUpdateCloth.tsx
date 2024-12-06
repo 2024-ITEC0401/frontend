@@ -30,12 +30,10 @@ const updateCloth = async (id: number, data: UpdateClothRequest): Promise<Update
 export const useUpdateCloth = () => {
     return useMutation<UpdateClothResponse, Error, { id: number; data: UpdateClothRequest }>({
         mutationFn: ({ id, data }) => updateCloth(id, data),
-        onSuccess: (data) => {
-            console.log("Cloth updated successfully:", data.message);
+        onSuccess: () => {
             alert("옷 정보가 성공적으로 업데이트되었습니다!");
         },
-        onError: (error) => {
-            console.error("Failed to update cloth:", error);
+        onError: () => {
             alert("옷 정보 업데이트에 실패했습니다.");
         },
     });
