@@ -40,7 +40,6 @@ export default function ProfilePage() {
             setAge(profile.age.toString());
             setColorList(profile.colorList);
             setStyleList(profile.styleList);
-            console.log("Profile Data:", profile);
         }
     }, [profile, setTone, setAge, setColorList, setStyleList]);
 
