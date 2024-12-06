@@ -4,10 +4,10 @@ import { ClothInfo } from "@/features/home/hooks/useFetchAllclothes";
 
 import { useCloth } from "@/entities/clothes/hooks/useCloth";
 import { CategorySelector } from "@/entities/clothes/ui/CategorySelector";
-import { ColorSelector } from "@/entities/clothes/ui/ColorSelector";
+import { ColorSelector_closet } from "@/entities/clothes/ui/ColorSelector_closet";
 import { PatternSelector } from "@/entities/clothes/ui/PatternSelector";
 import { SeasonSelector } from "@/entities/clothes/ui/SeasonSelector";
-import { StyleSelector } from "@/entities/clothes/ui/StyleSelector";
+import { StyleSelector_closet } from "@/entities/clothes/ui/StyleSelector_closet";
 import { SubCategorySelector } from "@/entities/clothes/ui/SubCategorySelector";
 import { TextileSelector } from "@/entities/clothes/ui/TextileSelector";
 
@@ -99,7 +99,7 @@ export const ClothCard = ({ cloth }: ClothCardProps) => {
 
                             <li>
                                 <Label>주 색상</Label>
-                                <ColorSelector
+                                <ColorSelector_closet
                                     value={editableCloth.baseColor}
                                     onValueChange={(value) => handleChange("baseColor", value)}
                                 />
@@ -107,7 +107,7 @@ export const ClothCard = ({ cloth }: ClothCardProps) => {
 
                             <li>
                                 <Label>포인트 색상</Label>
-                                <ColorSelector
+                                <ColorSelector_closet
                                     placeholder="Point Color"
                                     value={editableCloth.pointColor}
                                     onValueChange={(value) => handleChange("pointColor", value)}
@@ -125,7 +125,7 @@ export const ClothCard = ({ cloth }: ClothCardProps) => {
 
                             <li>
                                 <Label>스타일</Label>
-                                <StyleSelector
+                                <StyleSelector_closet
                                     placeholder="Style"
                                     value={editableCloth.style}
                                     onValueChange={(value) => handleChange("style", value)}
