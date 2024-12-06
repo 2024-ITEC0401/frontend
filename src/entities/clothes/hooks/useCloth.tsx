@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-import { queryClient } from "@/app/config/axios";
+import { queryClient } from "@/app/config/query";
 
 import { useDeleteCloth } from "@/features/home/hooks/useDeleteCloth";
 import { ClothInfo } from "@/features/home/hooks/useFetchAllclothes";

@@ -106,7 +106,7 @@ export const AddClothModal = () => {
                                 <Label>카테고리</Label>
                                 <CategorySelector
                                     className={isFieldInvalid("category") ? "border-red-500" : ""}
-                                    placeholder="Main Category"
+                                    placeholder="-"
                                     value={state.category}
                                     onValueChange={(value) => dispatch({ type: "SET_CATEGORY", payload: value })}
                                 />
@@ -116,7 +116,7 @@ export const AddClothModal = () => {
                                 <Label>하위 카테고리</Label>
                                 <SubCategorySelector
                                     className={isFieldInvalid("subCategory") ? "border-red-500" : ""}
-                                    placeholder="Sub Category"
+                                    placeholder="-"
                                     parentCategory={state.category}
                                     value={state.subCategory}
                                     onValueChange={(value) => dispatch({ type: "SET_SUBCATEGORY", payload: value })}
@@ -127,7 +127,7 @@ export const AddClothModal = () => {
                                 <Label>주 색상</Label>
                                 <ColorSelector
                                     className={isFieldInvalid("color") ? "border-red-500" : ""}
-                                    placeholder="Base Color"
+                                    placeholder="-"
                                     value={state.color}
                                     onValueChange={(color) => dispatch({ type: "SET_COLOR", payload: color })}
                                 />
@@ -137,7 +137,7 @@ export const AddClothModal = () => {
                                 <Label>포인트 색상</Label>
                                 <ColorSelector
                                     className={isFieldInvalid("pointColor") ? "border-red-500" : ""}
-                                    placeholder="Point Color"
+                                    placeholder="-"
                                     value={state.pointColor}
                                     onValueChange={(color) => dispatch({ type: "SET_POINTCOLOR", payload: color })}
                                 />
@@ -147,7 +147,7 @@ export const AddClothModal = () => {
                                 <Label>계절</Label>
                                 <SeasonSelector
                                     className={isFieldInvalid("season") ? "border-red-500" : ""}
-                                    placeholder="Season"
+                                    placeholder="-"
                                     value={state.season}
                                     onValueChange={(value) => dispatch({ type: "SET_SEASON", payload: value })}
                                 />
@@ -157,7 +157,7 @@ export const AddClothModal = () => {
                                 <Label>스타일</Label>
                                 <StyleSelector
                                     className={isFieldInvalid("style") ? "border-red-500" : ""}
-                                    placeholder="Style"
+                                    placeholder="-"
                                     value={state.style}
                                     onValueChange={(value) => dispatch({ type: "SET_STYLE", payload: value })}
                                 />
@@ -167,7 +167,7 @@ export const AddClothModal = () => {
                                 <Label>재질</Label>
                                 <TextileSelector
                                     className={isFieldInvalid("textile") ? "border-red-500" : ""}
-                                    placeholder="Textile"
+                                    placeholder="-"
                                     value={state.textile}
                                     onValueChange={(value) => dispatch({ type: "SET_TEXTILE", payload: value })}
                                 />
@@ -177,7 +177,7 @@ export const AddClothModal = () => {
                                 <Label>패턴</Label>
                                 <PatternSelector
                                     className={isFieldInvalid("pattern") ? "border-red-500" : ""}
-                                    placeholder="Pattern"
+                                    placeholder="-"
                                     value={state.pattern}
                                     onValueChange={(value) => dispatch({ type: "SET_PATTERN", payload: value })}
                                 />

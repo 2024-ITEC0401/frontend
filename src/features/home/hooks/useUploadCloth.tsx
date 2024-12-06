@@ -40,13 +40,5 @@ const uploadCloth = async (data: ClothUploadRequest): Promise<ClothUploadRespons
 export const useUploadCloth = () => {
     return useMutation<ClothUploadResponse, Error, ClothUploadRequest>({
         mutationFn: uploadCloth,
-        onSuccess: (data) => {
-            console.log("옷 등록 성공:", data);
-            alert("옷이 성공적으로 등록되었습니다!");
-        },
-        onError: (error) => {
-            console.error("옷 등록 실패:", error);
-            alert("옷 등록에 실패했습니다. 다시 시도해주세요.");
-        },
     });
 };
