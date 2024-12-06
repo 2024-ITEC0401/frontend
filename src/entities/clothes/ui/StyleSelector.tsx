@@ -15,7 +15,7 @@ export const StyleSelector = ({ className, placeholder, defaultValue, ...props }
         <Selector className={className} placeholder={placeholder} defaultValue={defaultValue} {...props}>
             {styles.map((style, index) => {
                 return (
-                    <SelectItem key={index} value={style.value}>
+                    <SelectItem key={index} value={style.enLabel}>
                         {style.krLabel} ({style.enLabel})
                     </SelectItem>
                 );
