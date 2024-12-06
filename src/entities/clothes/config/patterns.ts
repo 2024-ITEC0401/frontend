@@ -1,62 +1,62 @@
 export const patterns = [
     {
         patternLabel: "무지",
-        patternValue: "SOLID",
+        patternValue: "무지",
     },
     {
         patternLabel: "체크",
-        patternValue: "CHECK",
+        patternValue: "체크",
     },
     {
         patternLabel: "스트라이프",
-        patternValue: "STRIPE",
+        patternValue: "스트라이프",
     },
     {
         patternLabel: "프린트",
-        patternValue: "PRINT",
+        patternValue: "프린트",
     },
     {
         patternLabel: "도트",
-        patternValue: "DOT",
+        patternValue: "도트",
     },
     {
         patternLabel: "애니멀",
-        patternValue: "ANIMAL",
+        patternValue: "애니멀",
     },
     {
         patternLabel: "플로럴",
-        patternValue: "FLORAL",
+        patternValue: "플로럴",
     },
     {
         patternLabel: "트로피컬",
-        patternValue: "TROPICAL",
+        patternValue: "트로피컬",
     },
     {
         patternLabel: "페이즐리",
-        patternValue: "PAISLEY",
+        patternValue: "페이즐리",
     },
     {
         patternLabel: "아가일",
-        patternValue: "ARGYLE",
+        patternValue: "아가일",
     },
     {
         patternLabel: "밀리터리",
-        patternValue: "MILITARY",
+        patternValue: "밀리터리",
     },
     {
         patternLabel: "컬러 블록",
-        patternValue: "COLOR_BLOCK",
+        patternValue: "컬러 블록",
     },
     {
         patternLabel: "반복",
-        patternValue: "REPEAT",
+        patternValue: "반복",
     },
     {
         patternLabel: "기타",
-        patternValue: "OTHER",
+        patternValue: "기타",
     },
     {
         patternLabel: "유효하지 않음",
-        patternValue: "INVALID",
+        patternValue: "유효하지 않음",
     },
 ];
