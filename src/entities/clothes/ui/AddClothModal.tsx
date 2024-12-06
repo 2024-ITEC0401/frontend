@@ -6,10 +6,10 @@ import { useFetchOutfitInfo } from "@/features/home/hooks/useFetchOutfitInfo";
 
 import { useAddCloth } from "@/entities/clothes/hooks/useAddCloth";
 import { CategorySelector } from "@/entities/clothes/ui/CategorySelector";
-import { ColorSelector } from "@/entities/clothes/ui/ColorSelector";
+import { ColorSelector_closet } from "@/entities/clothes/ui/ColorSelector_closet";
 import { PatternSelector } from "@/entities/clothes/ui/PatternSelector";
 import { SeasonSelector } from "@/entities/clothes/ui/SeasonSelector";
-import { StyleSelector } from "@/entities/clothes/ui/StyleSelector";
+import { StyleSelector_closet } from "@/entities/clothes/ui/StyleSelector_closet";
 import { SubCategorySelector } from "@/entities/clothes/ui/SubCategorySelector";
 import { TextileSelector } from "@/entities/clothes/ui/TextileSelector";
 import { ImageUploader } from "@/entities/images/ui/ImageUploader";
@@ -40,14 +40,14 @@ export const AddClothModal = () => {
                 dispatch({ type: "SET_IMAGE_URI", payload: data.imageUri });
                 dispatch({ type: "SET_NAME", payload: data.name });
                 dispatch({ type: "SET_DESCRIPTION", payload: data.description });
-                dispatch({ type: "SET_CATEGORY", payload: data.category as string });
-                dispatch({ type: "SET_SUBCATEGORY", payload: data.subCategory as string });
-                dispatch({ type: "SET_COLOR", payload: data.color as string });
-                dispatch({ type: "SET_POINTCOLOR", payload: data.pointColor as string });
-                dispatch({ type: "SET_SEASON", payload: data.season as string });
-                dispatch({ type: "SET_STYLE", payload: data.style as string });
-                dispatch({ type: "SET_TEXTILE", payload: data.textile as string });
-                dispatch({ type: "SET_PATTERN", payload: data.pattern as string });
+                dispatch({ type: "SET_CATEGORY", payload: data.mainCategory });
+                dispatch({ type: "SET_SUBCATEGORY", payload: data.subCategory });
+                dispatch({ type: "SET_COLOR", payload: data.baseColor });
+                dispatch({ type: "SET_POINTCOLOR", payload: data.pointColor });
+                dispatch({ type: "SET_SEASON", payload: data.season });
+                dispatch({ type: "SET_STYLE", payload: data.style });
+                dispatch({ type: "SET_TEXTILE", payload: data.textile });
+                dispatch({ type: "SET_PATTERN", payload: data.pattern });
 
                 setIsUploading(false);
             },
@@ -126,7 +126,7 @@ export const AddClothModal = () => {
 
                             <li>
                                 <Label>주 색상</Label>
-                                <ColorSelector
+                                <ColorSelector_closet
                                     className={isFieldInvalid("color") ? "border-red-500" : ""}
                                     placeholder="-"
                                     value={state.color}
@@ -136,7 +136,7 @@ export const AddClothModal = () => {
 
                             <li>
                                 <Label>포인트 색상</Label>
-                                <ColorSelector
+                                <ColorSelector_closet
                                     className={isFieldInvalid("pointColor") ? "border-red-500" : ""}
                                     placeholder="-"
                                     value={state.pointColor}
@@ -156,7 +156,7 @@ export const AddClothModal = () => {
 
                             <li>
                                 <Label>스타일</Label>
-                                <StyleSelector
+                                <StyleSelector_closet
                                     className={isFieldInvalid("style") ? "border-red-500" : ""}
                                     placeholder="-"
                                     value={state.style}

@@ -1,7 +1,6 @@
 import { fetchAnalyzeInstance } from "@/app/config/analyzeAxios";
 
-import { parseClothesAnalysisResponse } from "@/entities/clothes/utils/parser";
-
+// import { parseClothesAnalysisResponse } from "@/entities/clothes/utils/parser";
 import { useMutation } from "@tanstack/react-query";
 
 export interface OutfitInfoResponse {
@@ -20,7 +19,7 @@ export interface OutfitInfoResponse {
 
 const uploadOutfitInfoPath = "/get_outfit_info";
 
-const uploadOutfitInfo = async (image: File): Promise<ReturnType<typeof parseClothesAnalysisResponse>> => {
+const uploadOutfitInfo = async (image: File): Promise<OutfitInfoResponse> => {
     const formData = new FormData();
     formData.append("image", image);
 
@@ -34,11 +33,11 @@ const uploadOutfitInfo = async (image: File): Promise<ReturnType<typeof parseClo
         throw new Error("이미지 업로드에 실패하였습니다.");
     }
 
-    return parseClothesAnalysisResponse(response.data);
+    return response.data;
 };
 
 export const useFetchOutfitInfo = () => {
-    return useMutation<ReturnType<typeof parseClothesAnalysisResponse>, Error, File>({
+    return useMutation<OutfitInfoResponse, Error, File>({
         mutationFn: uploadOutfitInfo,
     });
 };
