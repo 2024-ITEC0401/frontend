@@ -1,6 +1,6 @@
 import { useState, useCallback, useReducer } from "react";
 
-import { queryClient } from "@/app/config/axios";
+import { queryClient } from "@/app/config/query";
 
 import { useUploadCloth } from "@/features/home/hooks/useUploadCloth";
 
