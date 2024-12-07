@@ -52,7 +52,7 @@ export default function RecommendNaturalLanguagePage() {
                 {isPending && <ChatContent.Receive isPending={isPending} content="" />}
             </ChatContent.Content>
 
-            <ChatInput ref={inputRef} onClick={handleSend} />
+            <ChatInput ref={inputRef} onClick={handleSend} disabled={isPending} />
         </div>
     );
 }
