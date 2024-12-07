@@ -19,8 +19,14 @@ jobs:
             - name: Checkout Code
               uses: actions/checkout@v4
 
+            - name: Setup .env
+              run: echo "${{secrets.PRODUCTION_ENV}}" > .env
+
             - name: Install Dependencies
               run: npm install
+
+            - name: Install pnpm package manager
+              run: npm install -g pnpm
 
             - name: Build Production
               run: npm run build
