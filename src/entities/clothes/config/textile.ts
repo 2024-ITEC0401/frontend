@@ -67,4 +67,8 @@ export const textiles = [
         textileLabel: "기타",
         textileValue: "기타",
     },
+    {
+        textileLabel: "재질을 선택해주세요",
+        textileValue: "재질을 선택해주세요",
+    },
 ];

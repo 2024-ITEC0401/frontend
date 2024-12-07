@@ -129,4 +129,8 @@ export const colors_closet = [
         colorValue: "은색",
         color: "#c0c0c0",
     },
+    {
+        colorLabel: "색상을 선택해주세요",
+        colorValue: "색상을 선택해주세요",
+    },
 ];

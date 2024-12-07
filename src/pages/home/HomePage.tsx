@@ -1,16 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useFetchAllClothes } from "@/features/home/hooks/useFetchAllclothes";
+import { FilterState } from "@/features/home/hooks/useFilterCloset";
 import { FilterCloset } from "@/features/home/ui/FilterCloset";
 import { useGetSpecificCodis } from "@/features/recommend/hooks/useGetSpecificCodis";
 
 import { AddClothModal } from "@/entities/clothes/ui/AddClothModal";
 import { ClothCard } from "@/entities/clothes/ui/ClothCard";
+import { filterClothes } from "@/entities/clothes/utils/filter";
 
 import { Button } from "@/shared/ui/button";
 
 export default function HomePage() {
-    const [filter, setFilter] = useState<Record<string, string>>({});
+    const [filter, setFilter] = useState<FilterState>({
+        category: "카테고리를 선택해주세요",
+        subCategory: "카테고리를 선택해주세요",
+        baseColor: "색상을 선택해주세요",
+        pointColor: "색상을 선택해주세요",
+        season: "계절을 선택해주세요",
+        style: "스타일을 선택해주세요",
+    });
     const { data: clothes, isLoading, isError } = useFetchAllClothes();
     const { handleGetSpecificCodis } = useGetSpecificCodis();
 
@@ -37,6 +46,10 @@ export default function HomePage() {
         setSelectedClothes([]);
         setIsSelected(false);
     };
+
+    useEffect(() => {
+        console.table(filter);
+    }, [filter]);
 
     if (isLoading) {
         return <div>로딩 중...</div>;
@@ -73,7 +86,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-wrap justify-center gap-1.5 my-2">
-                {clothes?.map((cloth) => (
+                {filterClothes(clothes, filter)?.map((cloth) => (
                     <ClothCard
                         key={cloth.id}
                         cloth={cloth}
