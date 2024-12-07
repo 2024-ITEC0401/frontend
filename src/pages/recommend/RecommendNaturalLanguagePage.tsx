@@ -1,3 +1,5 @@
+import { guideline_1, guideline_2, guideline_3, guideline_4 } from "@/pages/recommend/guideline";
+
 import { useChat } from "@/features/recommend/hooks/useChat";
 import { useDeleteCodi } from "@/features/recommend/hooks/useDeleteCodi";
 import { ChatContent } from "@/features/recommend/ui/ChatContent";
@@ -22,7 +24,10 @@ export default function RecommendNaturalLanguagePage() {
             <h1 className="my-4 mt-2 text-xl font-bold">코디 추천</h1>
 
             <ChatContent.Content>
-                <ChatContent.Receive isPending={false} content={"무엇을 도와드릴까요?"} />
+                <ChatContent.Receive isPending={false} content={guideline_1} />
+                <ChatContent.Receive isPending={false} content={guideline_2} />
+                <ChatContent.Receive isPending={false} content={guideline_3} />
+                <ChatContent.Receive isPending={false} content={guideline_4} />
 
                 {chatHistory.map((content, index) => {
                     if (typeof content === "string") {
