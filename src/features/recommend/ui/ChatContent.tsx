@@ -11,9 +11,10 @@ const Send = ({ content }: SendProps) => {
 export interface ReceiveProps {
     isPending: boolean;
     content: string;
+    children?: React.ReactNode;
 }
 
-const Receive = ({ isPending, content }: ReceiveProps) => {
+const Receive = ({ isPending, content, children }: ReceiveProps) => {
     const [displayedText, setDisplayedText] = useState("");
 
     useEffect(
@@ -28,12 +29,19 @@ const Receive = ({ isPending, content }: ReceiveProps) => {
             animationFrameId = requestAnimationFrame(updateText);
             return () => cancelAnimationFrame(animationFrameId);
         },
-        [content],
+        [content, isPending],
     );
 
     return (
         <div className="px-4 py-2 ml-0 mr-auto bg-gray-300 rounded-lg">
-            {isPending ? <span className="animate-pulse">생성중 ...</span> : <span>{displayedText}</span>}
+            {isPending ? (
+                <span className="animate-pulse">생성중 ...</span>
+            ) : (
+                <>
+                    <span>{displayedText}</span>
+                    {children && <div className="mt-2">{children}</div>}
+                </>
+            )}
         </div>
     );
 };
@@ -43,7 +51,11 @@ export interface ContentProps {
 }
 
 const Content = ({ children }: ContentProps) => {
-    return <div className="flex flex-col flex-grow h-full gap-1 overflow-scroll">{children}</div>;
+    return (
+        <div className="flex flex-col flex-grow h-full overflow-scroll [&::-webkit-scrollbar]:hidden gap-6">
+            {children}
+        </div>
+    );
 };
 
 export const ChatContent = {
