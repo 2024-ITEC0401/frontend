@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 
 import { Send } from "lucide-react";
 
@@ -10,6 +10,7 @@ export interface ChatInputProps {
 }
 
 export const ChatInput = forwardRef<HTMLInputElement, ChatInputProps>(({ onClick }, ref) => {
+    const buttonRef = useRef<HTMLButtonElement>(null);
     return (
         <section className="fixed bottom-0 w-full max-w-[1180px] h-[50px] bg-white shadow-lg mx-auto px-[10px]">
             <div className="relative w-full mx-auto">
@@ -18,8 +19,13 @@ export const ChatInput = forwardRef<HTMLInputElement, ChatInputProps>(({ onClick
                     type="text"
                     className="h-[40px] rounded-full w-full absolute pr-[50px]"
                     placeholder="내용을 입력해주세요"
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            buttonRef.current?.click();
+                        }
+                    }}
                 />
-                <Button className="rounded-full h-[40px] w-[40px] absolute right-0" onClick={onClick}>
+                <Button ref={buttonRef} className="rounded-full h-[40px] w-[40px] absolute right-0" onClick={onClick}>
                     <Send />
                 </Button>
             </div>
