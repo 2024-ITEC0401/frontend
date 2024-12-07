@@ -16,7 +16,7 @@ export const ChatInput = forwardRef<HTMLInputElement, ChatInputProps>(({ onClick
                 <Input
                     ref={ref}
                     type="text"
-                    className="h-[40px] rounded-full w-full absolute"
+                    className="h-[40px] rounded-full w-full absolute pr-[50px]"
                     placeholder="내용을 입력해주세요"
                 />
                 <Button className="rounded-full h-[40px] w-[40px] absolute right-0" onClick={onClick}>
