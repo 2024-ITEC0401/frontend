@@ -59,4 +59,8 @@ export const patterns = [
         patternLabel: "유효하지 않음",
         patternValue: "유효하지 않음",
     },
+    {
+        patternLabel: "패턴을 선택해주세요",
+        patternValue: "패턴을 선택해주세요",
+    },
 ];

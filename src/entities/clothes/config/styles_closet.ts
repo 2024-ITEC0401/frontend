@@ -54,4 +54,9 @@ export const styles_closet = [
         enLabel: "Other",
         value: "기타",
     },
+    {
+        krLabel: "스타일을 선택해주세요",
+        enLabel: "",
+        value: "스타일을 선택해주세요",
+    },
 ];

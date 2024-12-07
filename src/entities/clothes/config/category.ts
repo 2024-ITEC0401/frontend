@@ -132,4 +132,9 @@ export const category = [
             { categoryLabel: "캐리어", categoryValue: "캐리어" },
         ],
     },
+    {
+        categoryLabel: "카테고리를 선택해주세요",
+        categoryValue: "카테고리를 선택해주세요",
+        subCategory: [{ categoryLabel: "카테고리를 선택해주세요", categoryValue: "카테고리를 선택해주세요" }],
+    },
 ];
