@@ -25,15 +25,10 @@ const chat = async (data: ChatRequestBody): Promise<ChatResponseBody> => {
 export const useChat = () => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [chatHistory, setChatHistory] = useState<(string | ChatResponseBody)[]>([]);
-    const [isPending, setIsPending] = useState(false);
 
-    const { mutate } = useMutation({
+    const { mutate, isPending } = useMutation({
         mutationFn: (data: ChatRequestBody) => chat(data),
-        onMutate: () => {
-            if (!isPending) {
-                setIsPending(true);
-            }
-        },
+
         onSuccess: (data) => {
             setChatHistory((prev) => [...prev, data]);
         },
@@ -42,7 +37,7 @@ export const useChat = () => {
     const handleSend = useCallback(() => {
         if (inputRef.current) {
             const message = inputRef.current.value;
-            setChatHistory((prev) => [...prev, message]);
+            setChatHistory([message]);
             mutate({ natural_language: message });
             inputRef.current.value = "";
         }
