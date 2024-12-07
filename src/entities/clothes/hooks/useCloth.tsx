@@ -34,9 +34,5 @@ export const useCloth = (cloth: ClothInfo) => {
         }
     }, [cloth.id, deleteCloth]);
 
-    const handleRecommend = useCallback(() => {
-        alert("추천 기능은 아직 구현되지 않았습니다.");
-    }, []);
-
-    return { handleEdit, handleRecommend, handleDelete };
+    return { handleEdit, handleDelete };
 };
