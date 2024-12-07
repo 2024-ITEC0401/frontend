@@ -19,10 +19,6 @@ export default function RecommendNaturalLanguagePage() {
         return `${year}. ${month}.${day}`;
     };
 
-    useEffect(() => {
-        console.log(isPending);
-    }, [isPending]);
-
     return (
         <div className="flex flex-col h-screen">
             <h1 className="my-4 mt-2 text-xl font-bold">코디 추천</h1>
