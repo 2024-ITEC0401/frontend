@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import { useChat } from "@/features/recommend/hooks/useChat";
 import { useDeleteCodi } from "@/features/recommend/hooks/useDeleteCodi";
 import { ChatContent } from "@/features/recommend/ui/ChatContent";

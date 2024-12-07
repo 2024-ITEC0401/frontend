@@ -36,7 +36,6 @@ export default function HomePage() {
 
         setSelectedClothes([]);
         setIsSelected(false);
-        // navigate("/recommend/codi");
     };
 
     if (isLoading) {
@@ -70,14 +69,6 @@ export default function HomePage() {
                     >
                         코디 생성하기
                     </Button>
-                    {/* <Button
-                        variant="outline"
-                        className="w-[120px]"
-                        disabled={selectedClothes.length === 0}
-                        onClick={handleGoToChat}
-                    >
-                        채팅하러 가기
-                    </Button> */}
                 </div>
             </div>
 
